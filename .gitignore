@@ -3,6 +3,12 @@ migrations/
 !migrations/
 !migrations/__init__.py
 
+# Static files
+static/
+staticfiles/
+*/static/
+media/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
