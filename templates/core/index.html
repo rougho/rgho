@@ -184,14 +184,16 @@ Home
         </div>
         <div class="table-responsive-lg">
             <div class="row flex-nowrap pb-4 pb-lg-0 me-5 me-lg-0">
+                {% for project in projects %}
                 <div class="col-lg-4 col-md-6 col-12">
                     <div>
                         <figure
                             class="lift position-relative btn-arrow mb-4">
-                            <a href="./portfolio-single.html">
-                                <img src="{% static 'assets/images/portfolio/portfolio-img-1.jpg' %}"
-                                    alt="portfolio-2"
-                                    class="img-fluid rounded-3" />
+                            <a href="{% url 'single_project' project.slug %}">
+                                <img src="{{ project.featured_image.url }}"
+                                    alt="{{ project.title }}"
+                                    class="img-fluid rounded-3 w-100" 
+                                    style="height: 250px; object-fit: cover;" />
 
                                 <div
                                     class="icon-shape icon-lg bg-white rounded-circle icon-arrow shadow-lg">
@@ -201,68 +203,21 @@ Home
                         </figure>
 
                         <h2 class="lh-base h4">
-                            <a href="./portfolio-single.html"
-                                class="text-reset">Chat GPT for Figma</a>
+                            <a href="{% url 'single_project' project.slug %}"
+                                class="text-reset">{{ project.title }}</a>
                         </h2>
                         <p class="mb-0 text-body-tertiary fw-medium">
-                            Development</p>
+                            {{ project.technologies }}</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div>
-                        <figure
-                            class="lift position-relative btn-arrow mb-4">
-                            <a href="./portfolio-single.html">
-                                <img src="{% static 'assets/images/portfolio/portfolio-img-5.jpg' %}"
-                                    alt="portfolio-2"
-                                    class="img-fluid rounded-3" />
-                                <div
-                                    class="icon-shape icon-lg bg-white rounded-circle icon-arrow shadow-lg">
-                                    <i class="bi bi-arrow-up-right"></i>
-                                </div>
-                            </a>
-                        </figure>
+                {% endfor %}
 
-                        <h2 class="lh-base h4">
-                            <a href="./portfolio-single.html"
-                                class="text-reset">Virtual reality</a>
-                        </h2>
-                        <p class="mb-0 text-body-tertiary fw-medium">UI/UX
-                            Design</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div>
-                        <figure
-                            class="lift position-relative btn-arrow mb-4">
-                            <a href="./portfolio-single.html">
-                                <img src="{% static 'assets/images/portfolio/portfolio-img-4.jpg' %}"
-                                    alt="portfolio-2"
-                                    class="img-fluid rounded-3" />
-                                <div
-                                    class="icon-shape icon-lg bg-white rounded-circle icon-arrow shadow-lg">
-                                    <i class="bi bi-arrow-up-right"></i>
-                                </div>
-                            </a>
-                        </figure>
-
-                        <div>
-                            <h2 class="lh-base h4">
-                                <a href="portfolio-single.html"
-                                    class="text-reset">AI avatar
-                                    application</a>
-                            </h2>
-                            <p class="mb-0 text-body-tertiary fw-medium">Web
-                                Development</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
         <div class="row">
             <div class="col-lg-12">
                 <div class="text-center my-5">
-                    <a href="#" class="btn btn-primary">Read case study</a>
+                    <a href="{% url 'projects' %}" class="btn btn-primary">View all projects</a>
                 </div>
             </div>
         </div>

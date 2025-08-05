@@ -45,10 +45,40 @@
             <div class="mt-6 markdown-content">
                 {{ project.description|safe }}
             </div>
+            
+            {% if sidebar_images %}
+            <div class="mt-6">
+                <h2>Project Gallery</h2>
+            </div>
+            <div id="projectCarousel" class="carousel slide mt-4" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    {% for image in sidebar_images %}
+                    <button type="button" data-bs-target="#projectCarousel" data-bs-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active" aria-current="true"{% endif %} aria-label="Slide {{ forloop.counter }}"></button>
+                    {% endfor %}
+                </div>
+                <div class="carousel-inner rounded-3">
+                    {% for image in sidebar_images %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                        <img src="{{ image.image.url }}" class="d-block w-100 rounded-3" alt="{{ image.caption|default:project.title }}" style="height: 400px; object-fit: cover;">
+                        {% if image.caption %}
+                        <div class="carousel-caption d-none d-md-block">
+                            <p class="mb-0 bg-dark bg-opacity-75 rounded px-2 py-1">{{ image.caption }}</p>
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#projectCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            {% endif %}
 
-            <figure class="my-6">
-            <img src="{% static 'assets/images/blog/blog-img-7.jpg' %}" alt="blog" class="img-fluid rounded-3 w-100" />
-            </figure>
 
         </article>
     </div>
