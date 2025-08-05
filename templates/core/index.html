@@ -6,7 +6,19 @@ Home
 {% endblock %}
 
 {% block content %}
-<section class="right-slant-shape bg-primary pb-10 pt-4 mb-10" data-cue="fadeIn" data-show="true" style="animation-name: fadeIn; animation-duration: 600ms; animation-timing-function: ease; animation-delay: 0ms; animation-direction: normal; animation-fill-mode: both;">
+<!-- Messages -->
+{% if messages %}
+    <div class="container mt-3">
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+
+<section class="right-slant-shape bg-primary pb-10 pt-4 mb-9" data-cue="fadeIn" data-show="true" style="animation-name: fadeIn; animation-duration: 600ms; animation-timing-function: ease; animation-delay: 0ms; animation-direction: normal; animation-fill-mode: both;">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 offset-lg-2 col-md-12 position-relative">
@@ -14,75 +26,292 @@ Home
                     <span class="fw-medium fs-4">Hi there, my name is</span>
                     <h1 class="text-white-stable display-3 mt-3 mb-3">Rouhollah<br>Ghobadinezhad</h1>
                     <p class="mb-0 pb-8 px-lg-7 text-opacity-75 lead">
-                        I'm the VP of Developer Experience at Vercel where my team helps developers build a faster web. I'm an advisor and investor in early stage startups.
+                        I'm a Computer Science graduate with over 2 years of experience across diverse technical fields, specializing in full-stack development and innovative digital solutions.
                     </p>
                 </div>
             </div>
         </div>
     </div>
     <div class="position-absolute z-1 w-100 text-center top-25 mt-n8" data-cue="zoomIn" data-show="true" style="animation-name: zoomIn; animation-duration: 600ms; animation-timing-function: ease; animation-delay: 0ms; animation-direction: normal; animation-fill-mode: both;">
-        <img src="{% static 'assets/images/perosnal-portfolio/personal-profile-img.jpg' %}" alt="avatar" class="rounded-circle shadow-sm border border-white border-4 img-fluid" style="width: clamp(120px, 20vw, 200px); height: clamp(120px, 20vw, 200px); object-fit: cover;">
+        <img src="{% static 'assets/images/perosnal-portfolio/personal-profile-img.jpg' %}" alt="avatar" class="rounded-circle shadow-sm border border-white border-4 img-fluid" width="200px">
     </div>
 </section>
 
 
+<!--About me start-->
+<section class="my-lg-9 my-5 pt-5">
+    <div class="container">
+        <div class="row mb-lg-9">
+            <div class="col-xl-10 offset-xl-1 col-md-12">
+                <div class="row">
+                    <div class="col-lg-6 offset-lg-3 col-md-12">
+                        <div class="text-lg-center text-center text-lg-start px-md-5">
+                            <small
+                                class="text-uppercase ls-md fw-semibold text-body-tertiary">ABOUT
+                                ME</small>
+                            <h2 class="mt-3">
+                                Crafting digital experiences with <br>
+                                <span class="text-primary">clean code</span>
+                                and smart design.
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-12 col-12">
+                <div class="mb-5 mb-lg-0 text-center text-lg-start px-md-5">
+                    <h2 class="mb-3">My process of Engagement</h2>
+                    <p class="mb-0">Vivamus sagittis lacus vel augue laoreet
+                        rutrum faucibus dolor auctor. Fusce dapibus, tellus
+                        ac cursus. Aenean eu leo quam.</p>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="row">
+                    <div class="col-md-6 col-12">
+                        <div
+                            class="mb-lg-8 mb-5 text-center text-lg-start px-3 px-lg-0">
+                            <div class="mb-3">
+                                <img src="{% static 'assets/images/process-icon/LightbulbFilament.svg' %}"
+                                    alt="bulb" />
+                            </div>
 
- <section class="py-5">
-   <!--Logo section start-->
-   <div class="container">
-      <div class="row align-items-center gy-6">
-         <div class="col-xl-6 col-lg-7">
-            <div class="pe-lg-8 me-lg-8 mb-4">
-               <h2 class="mb-0 me-lg-8">
-                  Discover why
-                  <span class="text-primary fw-semibold">[Agency Name]</span>
-                  is the best choice for SEO.
-               </h2>
-            </div>
-            <div class="row mb-7 gy-3">
-               <div class="col-lg-6">
-                  <div>
-                     <h3 class="fs-4">Expertise</h3>
-                     <p class="mb-0">Our team of SEO specialists has years of experience and a deep understanding of search engine algorithms and trends.</p>
-                  </div>
-               </div>
-               <div class="col-lg-6">
-                  <div>
-                     <h3 class="fs-4">Proven Results</h3>
-                     <p class="mb-0">Our data-driven approach ensures measurable results and continuous improvement.</p>
-                  </div>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-4 border-end">
-                  <div class="ps-md-4">
-                     <h3 class="fs-5">Digital Experts</h3>
-                     <span class="fs-2 fw-bold text-primary">50+</span>
-                  </div>
-               </div>
+                            <h3 class="h4">Ideation</h3>
+                            <p class="mb-0 pe-lg-4">We craft a plan aligned
+                                with your business objectives, submit a
+                                comprehensive proposal.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <div
+                            class="mb-lg-8 mb-5 text-center text-lg-start px-3 px-lg-0">
+                            <div class="mb-3">
+                                <img src="{% static 'assets/images/process-icon/PencilCircle.svg' %}"
+                                    alt="bulb" />
+                            </div>
 
-               <div class="col-4 border-end">
-                  <div class="ps-md-4">
-                     <h3 class="fs-5">Reviews</h3>
-                     <span class="fs-2 fw-bold text-primary">100+</span>
-                  </div>
-               </div>
+                            <h3 class="h4">Design</h3>
+                            <p class="mb-0">We design the Idea in Figma and
+                                seek approval. We offer 2 free design
+                                iterations.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <div
+                            class="mb-lg-8 mb-5 text-center text-lg-start px-3 px-lg-0">
+                            <div class="mb-3">
+                                <img src="{% static 'assets/images/process-icon/BracketsCurly.svg' %}"
+                                    alt="bulb" />
+                            </div>
 
-               <div class="col-4">
-                  <div class="ps-md-4">
-                     <h3 class="fs-5">Track record</h3>
-                     <span class="fs-2 fw-bold text-primary">10-Year</span>
-                  </div>
-               </div>
+                            <h3 class="h4">Development</h3>
+                            <p class="mb-0 pe-lg-4">Agile Development:
+                                Sprints, Milestones, and weekly Progress
+                                Tracking.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-12">
+                        <div
+                            class="mb-lg-8 mb-5 text-center text-lg-start px-3 px-lg-0">
+                            <div class="mb-3">
+                                <img src="{% static 'assets/images/process-icon/Rocket.svg' %}"
+                                    alt="bulb" />
+                            </div>
+
+                            <h3 class="h4">Delivery</h3>
+                            <p class="mb-0 pe-lg-4">Complete Project
+                                Delivery with Complimentary One Month
+                                Maintenance.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-         </div>
-         <div class="col-xl-6 col-lg-5">
-            <div>
-               <img src="{% static 'assets/images/seo/about.jpg' %}" alt="" class="img-fluid rounded-3" />
-            </div>
-         </div>
-      </div>
-   </div>
+        </div>
+    </div>
 </section>
+<!--About me end-->
+
+ <!--team member-->
+<section class="py-lg-6 py-2">
+    <div class="container bg-primary py-lg-9 py-5">
+        <div class="row g-5">
+            <div class="col-md-3 col-6">
+                <div class="text-center">
+                    <h2 class="text-white-stable">2011</h2>
+                    <h5 class="text-white-stable mb-0">Founded</h5>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="text-center">
+                    <h2 class="text-white-stable">425+</h2>
+                    <h5 class="text-white-stable mb-0">Projects Shipped</h5>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="text-center">
+                    <h2 class="text-white-stable">55+</h2>
+                    <h5 class="text-white-stable mb-0">Team Members</h5>
+                </div>
+            </div>
+            <div class="col-md-3 col-6">
+                <div class="text-center">
+                    <h2 class="text-white-stable">4.9</h2>
+                    <h5 class="text-white-stable mb-0">Clutch Rating</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--team member-->
+
+<!--Project we done start-->
+<section class="my-xl-9 my-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="text-center mb-xl-7 mb-5">
+                    <small class="text-uppercase ls-md fw-semibold">Project
+                        we done</small>
+
+                    <h2 class="my-3">Featured work</h2>
+                    <p class="mb-0">We're a web design agency creating
+                        next‑level websites by strategically blending user
+                        experience and brand storytelling.</p>
+                </div>
+            </div>
+        </div>
+        <div class="table-responsive-lg">
+            <div class="row flex-nowrap pb-4 pb-lg-0 me-5 me-lg-0">
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div>
+                        <figure
+                            class="lift position-relative btn-arrow mb-4">
+                            <a href="./portfolio-single.html">
+                                <img src="{% static 'assets/images/portfolio/portfolio-img-1.jpg' %}"
+                                    alt="portfolio-2"
+                                    class="img-fluid rounded-3" />
+
+                                <div
+                                    class="icon-shape icon-lg bg-white rounded-circle icon-arrow shadow-lg">
+                                    <i class="bi bi-arrow-up-right"></i>
+                                </div>
+                            </a>
+                        </figure>
+
+                        <h2 class="lh-base h4">
+                            <a href="./portfolio-single.html"
+                                class="text-reset">Chat GPT for Figma</a>
+                        </h2>
+                        <p class="mb-0 text-body-tertiary fw-medium">
+                            Development</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div>
+                        <figure
+                            class="lift position-relative btn-arrow mb-4">
+                            <a href="./portfolio-single.html">
+                                <img src="{% static 'assets/images/portfolio/portfolio-img-5.jpg' %}"
+                                    alt="portfolio-2"
+                                    class="img-fluid rounded-3" />
+                                <div
+                                    class="icon-shape icon-lg bg-white rounded-circle icon-arrow shadow-lg">
+                                    <i class="bi bi-arrow-up-right"></i>
+                                </div>
+                            </a>
+                        </figure>
+
+                        <h2 class="lh-base h4">
+                            <a href="./portfolio-single.html"
+                                class="text-reset">Virtual reality</a>
+                        </h2>
+                        <p class="mb-0 text-body-tertiary fw-medium">UI/UX
+                            Design</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div>
+                        <figure
+                            class="lift position-relative btn-arrow mb-4">
+                            <a href="./portfolio-single.html">
+                                <img src="{% static 'assets/images/portfolio/portfolio-img-4.jpg' %}"
+                                    alt="portfolio-2"
+                                    class="img-fluid rounded-3" />
+                                <div
+                                    class="icon-shape icon-lg bg-white rounded-circle icon-arrow shadow-lg">
+                                    <i class="bi bi-arrow-up-right"></i>
+                                </div>
+                            </a>
+                        </figure>
+
+                        <div>
+                            <h2 class="lh-base h4">
+                                <a href="portfolio-single.html"
+                                    class="text-reset">AI avatar
+                                    application</a>
+                            </h2>
+                            <p class="mb-0 text-body-tertiary fw-medium">Web
+                                Development</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-center my-5">
+                    <a href="#" class="btn btn-primary">Read case study</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Project we done end-->
+
+<!--Call to action start-->
+<section class="py-5">
+    <div class="container">
+        <div class="row bg-pattern bg-primary-gradient rounded-3 p-7 g-0">
+            <div
+                class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 col-md-12 col-12">
+                <div class="position-relative z-1 my-lg-5">
+                    <div class="mb-5 text-center">
+                        <h3 class="h2 text-white-stable mb-1">Try our
+                            powerful work management tools</h3>
+                        <p class="mb-0 text-white-stable">Sign up for a free
+                            two-week trial of Block today — no credit card
+                            required.</p>
+                    </div>
+                    <form class="row g-2 needs-validation d-flex mx-lg-7" method="post"
+                        novalidate>
+                        {% csrf_token %}
+                        <div class="col-md-7 col-xl-7 col-12">
+                            <label for="id_email"
+                                class="visually-hidden"></label>
+                            <input type="email" id="id_email" name="email"
+                                class="form-control"
+                                placeholder="Enter your business email"
+                                aria-label="Enter your business email"
+                                required />
+                            <div class="invalid-feedback text-start">Please
+                                choose a valid email.</div>
+                        </div>
+                        <div class="col-md-5 col-xl-5 col-12">
+                            <div class="d-grid">
+                                <input type="hidden" name="agreement" value="true">
+                                <button class="btn btn-dark"
+                                    type="submit">Get notified for
+                                    free</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Call to action end-->
 
 {% endblock %}

@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %} Projects {% endblock %}
+
+{% block content %}
+<!--who we are-->
+<section class="mb-7 py-xl-9 py-5">
+
+    <div class="container pb-xl-9 pb-5 border-bottom border-bottom-lg-4">
+        <div class="row mb-4">
+            <div class="col-xl-8 offset-xl-2 col-12">
+                <div class="text-center mb-xl-7 mb-5 border-bottom">
+                    <h2 class="mb-3">Projects That Matter</h2>
+                    <p class="mb-0 mb-3">
+                        From concept to code - explore the digital solutions I've crafted with passion and precision.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-center g-4">
+            <div class="col-lg-6 col-md-12">
+                <div class="me-xl-8">
+                    <h1 class="mb-3">Who we are</h1>
+                    <p class="lead mb-4">We help organizations achieve their
+                        most ambitious goals and move with greater agility.
+                    </p>
+                    <p class="mb-6 me-xl-6">
+                        With our next-generation app platform, teams easily
+                        design and deploy flexible and engaging apps that
+                        power critical workflows and make valuable data
+                        actionable
+                        across the enterprise.
+                    </p>
+                    <div class="row g-lg-3">
+                        <div class="col-md-6">
+                            <ul class="list-unstyled mb-3">
+                                <li class="d-flex mb-3">
+                                    <span>
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            width="16" height="16"
+                                            fill="currentColor"
+                                            class="bi bi-check-circle-fill text-primary opacity-75"
+                                            viewBox="0 0 16 16">
+                                            <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                                        </svg>
+                                    </span>
+                                    <span class="ms-2">Aenean eu leo quam
+                                        ornare curabitur blandit
+                                        tempus.</span>
+                                </li>
+                                <li class="d-flex">
+                                    <span>
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            width="16" height="16"
+                                            fill="currentColor"
+                                            class="bi bi-check-circle-fill text-primary opacity-75"
+                                            viewBox="0 0 16 16">
+                                            <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                                        </svg>
+                                    </span>
+                                    <span class="ms-2">Lorem ipsum dolor sit
+                                        amet consectetur.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-unstyled mb-0">
+                                <li class="d-flex mb-3">
+                                    <span>
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            width="16" height="16"
+                                            fill="currentColor"
+                                            class="bi bi-check-circle-fill text-primary opacity-75"
+                                            viewBox="0 0 16 16">
+                                            <path
+                                                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                                        </svg>
+                                    </span>
+                                    <span class="ms-2">Consectetur dolor
+                                        sit, amet sectetur
+                                        adipisicing.</span>
+                                </li>
+                                <li class="d-flex">
+                                    <span>
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            width="16" height="16"
+                                            fill="currentColor"
+                                            class="bi bi-check-circle-fill text-primary opacity-75"
+                                            viewBox="0 0 16 16">
+                                            <path
+                                                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                                        </svg>
+                                    </span>
+                                    <span class="ms-2">Mollitia qui sit
+                                        velit, facere, quasi quisquam
+                                        unde.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <button class="btn btn-primary" type="button">Go to the Project</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <figure>
+                    <img src="{% static 'assets/images/about-img/about-hero-img.jpg' %}"
+                        alt="career" class="img-fluid rounded-3" />
+                </figure>
+            </div>
+        </div>
+    </div>
+</section>
+<!--who we are-->
+
+{% endblock %}
