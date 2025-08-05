@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import EmailSubscriptionForm
+from projects.models import Project
 
 # Create your views here.
 def index(request):
@@ -22,4 +23,6 @@ def index(request):
     else:
         form = EmailSubscriptionForm()
     
-    return render(request, 'core/index.html', {'form': form})
+    projects = Project.objects.all().order_by('-created_at')[:3]
+    
+    return render(request, 'core/index.html', {'form': form, 'projects': projects})
