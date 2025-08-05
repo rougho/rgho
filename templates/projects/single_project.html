@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %} Projects {% endblock %}
+
+{% block content %}
+<!-- Custom markdown styling -->
+<link rel="stylesheet" href="{% static 'assets/css/markdown.css' %}" />
+
+
+<!--Blog single start-->
+<div class="py-xl-9 py-4">
+<div class="container">
+    <div class="row">
+        <article class="col-lg-8 offset-lg-2">
+
+            <!-- THE TITLE OF THE PROJECT -->
+            <h1> {{ project.title }}</h1>
+            <div class="d-flex align-items-center mt-lg-6 mt-4">
+            <div class="me-5">
+                <span class="fs-6">Written by</span>
+                <div class="d-flex align-items-center mt-2">
+                    <div>
+                        <a class="text-reset fs-6">{{ project.created_by|title }}</a>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <span class="fs-6">Published on</span>
+                <div class="mt-2 text-dark">
+                    <span class="fs-6">{{ project.created_at|date:"M d, Y" }}</span>
+                </div>
+            </div>
+            </div>
+
+            <figure class="my-6">
+            <!-- AN IMAGE OR GIF OF THE PROJECT -->
+
+            <img src="{{ project.featured_image.url }}" alt="{{ project.title }}" class="rounded-3 img-fluid w-100" />
+            </figure>
+            <div class="mt-6">
+            <h2>Description</h2>
+            </div>
+
+            <div class="mt-6 markdown-content">
+                {{ project.description|safe }}
+            </div>
+
+            <figure class="my-6">
+            <img src="{% static 'assets/images/blog/blog-img-7.jpg' %}" alt="blog" class="img-fluid rounded-3 w-100" />
+            </figure>
+
+        </article>
+    </div>
+</div>
+</div>
+<!--Blog single end-->
+{% endblock %}
