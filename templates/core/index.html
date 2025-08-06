@@ -6,17 +6,7 @@ Home
 {% endblock %}
 
 {% block content %}
-<!-- Messages -->
-{% if messages %}
-    <div class="container mt-3">
-        {% for message in messages %}
-            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-                {{ message }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        {% endfor %}
-    </div>
-{% endif %}
+
 
 <section class="right-slant-shape bg-primary pb-10 pt-4 mb-9" data-cue="fadeIn" data-show="true" style="animation-name: fadeIn; animation-duration: 600ms; animation-timing-function: ease; animation-delay: 0ms; animation-direction: normal; animation-fill-mode: both;">
     <div class="container">
@@ -184,6 +174,7 @@ Home
         </div>
         <div class="table-responsive-lg">
             <div class="row flex-nowrap pb-4 pb-lg-0 me-5 me-lg-0">
+                {% if projects %}
                 {% for project in projects %}
                 <div class="col-lg-4 col-md-6 col-12">
                     <div>
@@ -221,6 +212,14 @@ Home
                 </div>
             </div>
         </div>
+
+            {% else %}
+            <div class="col-lg-6 offset-lg-3 text-center ">
+            <h3 class="lh-base h3 text-warning">- There is no Project available -</h3>
+
+        {% endif %}
+        </div>
+
     </div>
 </section>
 <!--Project we done end-->

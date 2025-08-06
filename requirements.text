@@ -1,0 +1,10 @@
+asgiref==3.9.1
+Django==5.2.4
+django-phonenumber-field==8.1.0
+Markdown==3.8.2
+phonenumbers==9.0.10
+pillow==11.3.0
+pymdown-extensions==10.16.1
+python-dotenv==1.1.1
+PyYAML==6.0.2
+sqlparse==0.5.3

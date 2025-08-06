@@ -19,7 +19,7 @@
                 </div>
             </div>
         </div>
-
+        {% if projects %}
         {% for project in projects %}
         <div class="row align-items-center g-4 mb-10">
             <div class="col-lg-6 col-md-12">
@@ -53,6 +53,13 @@
             </div>
         </div>
         {% endfor %}
+
+            {% else %}
+            <div class="col-lg-6 offset-lg-3 text-center ">
+            <h3 class="lh-base h3 text-warning">- There is no Project available -</h3>
+
+        {% endif %}
+        </div>
 
     </div>
 </section>
