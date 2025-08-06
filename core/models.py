@@ -22,7 +22,7 @@ class Contact(models.Model):
     phone_number = PhoneNumberField(blank=True, null=True)
     email = models.EmailField(blank=False, null=False)
     company = models.CharField(max_length=100, blank=True, null=True)
-    date_time = models.DateTimeField(auto_now_add=True)
+    date_time = models.DateTimeField(editable=False, auto_now_add=True)
     subject = models.CharField(max_length=200, blank=False, null=False)
     message = models.TextField(blank=False, null=False)
     
