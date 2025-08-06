@@ -72,10 +72,10 @@
         <div class="d-none d-lg-block position-absolute top-50 start-50 translate-middle">
             <ul class="navbar-nav flex-row">
                 <li class="nav-item me-4">
-                    <a class="nav-link" aria-current="page" href="{% url 'homepage' %}">Home</a>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'homepage' %}active{% endif %}" aria-current="page" href="{% url 'homepage' %}">Home</a>
                 </li>
                 <li class="nav-item me-4">
-                    <a class="nav-link" href="{% url 'projects' %}">Projects</a>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'projects' %}active{% endif %}" href="{% url 'projects' %}">Projects</a>
                 </li>
                 <li class="nav-item me-4">
                     <a class="nav-link" href="#">Portfolio</a>
@@ -84,7 +84,7 @@
                     <a class="nav-link" href="#">Blog</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}" href="{% url 'contact' %}">Contact</a>
                 </li>
             </ul>
         </div>
@@ -103,16 +103,16 @@
             <div class="offcanvas-body pt-0">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'homepage' %}">Home</a>
+                        <a class="nav-link {% if request.resolver_match.url_name == 'homepage' %}active{% endif %}" aria-current="page" href="{% url 'homepage' %}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Projects</a>
+                        <a class="nav-link {% if request.resolver_match.url_name == 'projects' %}active{% endif %}" href="{% url 'projects' %}">Projects</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Portfolio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}" href="{% url 'contact' %}">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -121,7 +121,38 @@
 </nav>
 
 </header>
+<!-- Messages -->
+{% if messages %}
+    <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1055;">
+        {% for message in messages %}
+            <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="true" data-bs-delay="10000">
+                <div class="toast-header">
+                    {% if message.tags == 'success' %}
+                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                        <strong class="me-auto">Success</strong>
+                    {% elif message.tags == 'error' %}
+                        <i class="bi bi-exclamation-triangle-fill text-danger me-2"></i>
+                        <strong class="me-auto">Error</strong>
+                    {% elif message.tags == 'warning' %}
+                        <i class="bi bi-exclamation-triangle-fill text-warning me-2"></i>
+                        <strong class="me-auto">Warning</strong>
+                    {% else %}
+                        <i class="bi bi-info-circle-fill text-info me-2"></i>
+                        <strong class="me-auto">Info</strong>
+                    {% endif %}
+                    <small class="text-muted">just now</small>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body">
+                    {{ message }}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+
 {% block content %}
+
 
 {% endblock %}
 <footer class="pt-7 border-top mt-7">
@@ -347,6 +378,11 @@
 
 <!-- Theme JS -->
 <script src="{% static 'assets/js/theme.min.js' %}"></script>
+<script src="{% static 'assets/js/custom.js' %}"></script>
+
+
+<!-- Toast initialization and timer -->
+
 
       <script src="{% static 'assets/libs/swiper/swiper-bundle.min.js' %}"></script>
       <script src="{% static 'assets/js/vendors/swiper.js' %}"></script>

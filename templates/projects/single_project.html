@@ -13,7 +13,7 @@
 <div class="container">
     <div class="row">
         <article class="col-lg-8 offset-lg-2">
-
+            {% if project %}
             <!-- THE TITLE OF THE PROJECT -->
             <h1> {{ project.title }}</h1>
             <div class="d-flex align-items-center mt-lg-6 mt-4">
@@ -81,6 +81,13 @@
 
 
         </article>
+
+            {% else %}
+            <div class="col-lg-6 offset-lg-3 text-center ">
+            <h3 class="lh-base h3 text-warning">- There is no Project available -</h3>
+
+        {% endif %}
+        </div>
     </div>
 </div>
 </div>
