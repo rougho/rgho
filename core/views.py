@@ -2,8 +2,12 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import EmailSubscriptionForm, ContactForm
 from projects.models import Project
+from resume.models import Resume
 
 # Create your views here.
+def base(request):
+    pass
+
 def index(request):
     if request.method == 'POST':
         form = EmailSubscriptionForm(request.POST)
@@ -24,8 +28,9 @@ def index(request):
         form = EmailSubscriptionForm()
     
     projects = Project.objects.all().order_by('-created_at')[:3]
+    resume = Resume.objects.first()
     
-    return render(request, 'core/index.html', {'form': form, 'projects': projects})
+    return render(request, 'core/index.html', {'form': form, 'projects': projects, 'resume' : resume})
 
 def contact(request):
     if request.method == 'POST':
@@ -33,7 +38,7 @@ def contact(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Thank you for contacting us! I will get back to you soon.')
-            return redirect('contact')  # Redirect to avoid form resubmission
+            return redirect('homepage')  # Redirect to avoid form resubmission
         else:
             # Handle specific field errors
             for field, errors in form.errors.items():
@@ -57,4 +62,5 @@ def contact(request):
     else:
         form = ContactForm()
     
-    return render(request, 'core/contact.html', {'form': form})
+    resume = Resume.objects.first()
+    return render(request, 'core/contact.html', {'form': form, 'resume': resume})

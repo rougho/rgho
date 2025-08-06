@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from projects.models import Project
+from resume.models import Resume
 import markdown
 from django.shortcuts import get_object_or_404
 
@@ -7,6 +8,7 @@ from django.shortcuts import get_object_or_404
 
 def projects_view(request):
     projects = Project.objects.all()
+    resume = Resume.objects.first()
     
     # Add split technologies to each project
     for project in projects:
@@ -14,12 +16,14 @@ def projects_view(request):
     
     context = {
         'projects' : projects,
+        'resume': resume,
     }
     return render(request, 'projects/projects.html', context=context)
 
 
 def single_project_view(request, slug):
     project = get_object_or_404(Project, slug=slug)
+    resume = Resume.objects.first()
     
     # Get non-featured images for sidebar
     sidebar_images = project.images.filter(featured=False).order_by('order', 'uploaded_at')
@@ -38,5 +42,6 @@ def single_project_view(request, slug):
     context = {
         'project': project,
         'sidebar_images': sidebar_images,
+        'resume': resume,
     }
     return render(request, 'projects/single_project.html', context=context)

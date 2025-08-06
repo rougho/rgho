@@ -1,0 +1,158 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}
+Resume
+{% endblock %}
+
+{% block content %}
+
+{% if resume %}
+            <div class="container my-5">
+        <div class="row mb-4">
+            <div class="col-xl-8 offset-xl-2 col-12 mt-6 mb-6">
+                <div class="text-center mb-xl-7 mb-5 border-bottom">
+                    <h2 class="mb-3">My Resume</h2>
+                    <p class="mb-0 mb-3">
+                        My professional journey, expertise, and accomplishments as software engineer and system administrator.
+                    </p>
+                </div>
+            </div>
+        </div>
+                <div class="row d-flex align-items-center mb-md-9 mb-6 my-5">
+                  <div class="col-lg-6 col-md-6 col-12">
+                     <figure class="mb-4 mb-md-0">
+                {% if resume.image %}
+                    <img src="{{ resume.image.url }}" alt="{{ resume.full_name }}" class="img-fluid rounded-3">
+                {% endif %}                     </figure>
+                  </div>
+                  <div class="col-lg-5 offset-lg-1 col-md-6 col-12">
+                     <span class="text-primary fw-semibold">01</span>
+                     <div class="mb-4">
+                        <h3 class="mt-4 mb-3">My Name is...</h3>
+            <div class="col-md-8">
+                <h1 class="text-primary">{{ resume.full_name }}</h1>
+                <p><i class="bi bi-envelope-at-fill align-middle me-2 resume-icons"></i>{{ resume.email }}</p>
+                <p><i class="bi bi-telephone-plus-fill align-middle me-2 resume-icons"></i>{{ resume.phone }}</p>
+                <p><i class="bi bi-cake2-fill align-middle me-2 resume-icons"></i>{{ resume.birthday }}</p>
+                
+                {% if resume.github %}
+                    <p><i class="bi bi-github align-middle me-2 resume-icons"></i><a href="{{ resume.github }}" target="_blank">{{ resume.github }}</a></p>
+                {% endif %}
+                
+                {% if resume.linkedin %}
+                    <p><i class="bi bi-linkedin align-middle me-2resume-icons"></i><a href="{{ resume.linkedin }}" target="_blank">{{ resume.linkedin }}</a></p>
+                {% endif %}
+            </div>
+                     </div>
+
+                  </div>
+               </div>
+
+        <div class="container pt-6 text-center">
+        {% if resume.experiences.all %}
+            <div class="text-center mb-xl-7 mb-5 border-bottom">
+                <h2 class="mb-3">Experience</h2>
+            </div>
+            {% for experience in resume.experiences.all %}
+            <div class="row">
+                <div class="col text-lg-start text-start">
+                        <h4 class="text-primary mb-2">{{ experience.job_title }}</h4>
+                        <h5 class="text">{{ experience.company }} - {{ experience.location }}</h5>
+
+                </div>
+                <div class="col text-lg-end">
+                        <p class="text">{{ experience.from_date }} to {{ experience.to_date }}</p>
+                </div>
+            </div>
+            <p class="ext text-start text-lg-start">{{ experience.job_description }}</p>
+            {% endfor %}
+            </div>
+        {% endif %}
+
+            <br><br>
+        <!-- Projects Section -->
+        <div class="container pt-6 text-center">
+        {% if resume.projects.all %}
+            <div class="text-center mb-xl-7 mb-5 border-bottom">
+                <h2 class="mb-3">Projects</h2>
+            </div>
+            {% for project in resume.projects.all %}
+            <div class="row">
+                <div class="col text-lg-start text-start">
+                        <h4 class="text-primary mb-2">{{ project.title }}</h4>
+                        <h5 class="card-text">{{ project.technologies }}</h5>
+
+                </div>
+                <div class="col text-lg-end">
+                        <p class="text">{{ project.from_date }}</p>
+                </div>
+            </div>
+            <div class="row mb-5">
+                <div class="col-11">
+                    <p class="ext text-start text-lg-start">{{ project.description }}</p>
+                </div>
+                <div class="col-1"><a href="{{ project.url }}" class="bi bi-link-45deg text-primary" style="font-size: 2rem;"></a></div>
+            </div>
+            {% endfor %}
+            </div>
+        {% endif %}
+        
+        
+            <br><br>
+        <!-- Education Section -->
+        <div class="container pt-6 text-center">
+        {% if resume.educations.all %}
+            <div class="text-center mb-xl-7 mb-5 border-bottom">
+                <h2 class="mb-3">Education</h2>
+            </div>
+            {% for education in resume.educations.all %}
+            <div class="row">
+                <div class="col text-lg-start text-start">
+                        <h4 class="text-primary mb-2">{{ education.institution }}</h4>
+                        <h5 class="card-text">{{ education.degree }}</h5>
+
+                </div>
+                <div class="col text-lg-end">
+                        <p class="text">{{ education.from_date }} to {{ education.to_date }}</p>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-11">
+                    <p class="ext text-start text-lg-start">{{ education.description }}</p>
+                </div>
+            </div>
+            {% endfor %}
+            </div>
+        {% endif %}
+        
+
+        <!-- Skills Section -->
+        {% if resume.skills.all %}
+            <div class="row mt-5">
+                <div class="col-12">
+                    <h3>Skills</h3>
+                    {% regroup resume.skills.all by category as skill_groups %}
+                    {% for group in skill_groups %}
+                        <h5>{{ group.grouper }}</h5>
+                        <ul>
+                            {% for skill in group.list %}
+                                <li>{{ skill.name }} - {{ skill.level|title }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+        
+    </div>
+{% else %}
+    <div class="container my-5">
+        <div class="alert alert-warning" role="alert">
+            <h4 class="alert-heading">No Resume Found!</h4>
+            <p>Please create a resume from the admin panel first.</p>
+        </div>
+    </div>
+{% endif %}
+
+{% endblock %}

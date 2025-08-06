@@ -46,6 +46,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'core',
     'projects',
+    'resume',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
