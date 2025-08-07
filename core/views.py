@@ -13,10 +13,10 @@ def index(request):
     if request.method == 'POST':
         form = EmailSubscriptionForm(request.POST)
         if form.is_valid():
-            if email_new_subscribers(request, form.cleaned_data['email']):
-                if form.save():
-                    messages.success(request, 'Thank you for subscribing! We will notify you soon.')
-                    return redirect('homepage')
+            email_new_subscribers(request, form.cleaned_data['email'])
+            form.save()
+            messages.success(request, 'Thank you for subscribing! We will notify you soon.')
+            return redirect('homepage')
         else:
             if 'email' in form.errors:
                 email_errors = form.errors['email']

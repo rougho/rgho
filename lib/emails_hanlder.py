@@ -26,8 +26,7 @@ def email_new_subscribers(request, subscriber):
         
     except Exception as e:
         logger.error(f"Failed to send subscription email to {subscriber}: {str(e)}")
-        # Don't raise the exception to avoid breaking the user flow
-        pass
+        return False
 
 
 def email_contact_confirmation(request, id,email, full_name):
@@ -53,5 +52,4 @@ def email_contact_confirmation(request, id,email, full_name):
         
     except Exception as e:
         logger.error(f"Failed to send Contact form response email to {email}: {str(e)}")
-        # Don't raise the exception to avoid breaking the user flow
-        pass
+        return False
