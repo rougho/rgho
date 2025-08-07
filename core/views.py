@@ -3,6 +3,7 @@ from django.contrib import messages
 from .forms import EmailSubscriptionForm, ContactForm
 from projects.models import Project
 from resume.models import Resume
+from lib.emails_hanlder import email_new_subscribers
 
 # Create your views here.
 def base(request):
@@ -12,8 +13,9 @@ def index(request):
     if request.method == 'POST':
         form = EmailSubscriptionForm(request.POST)
         if form.is_valid():
-            form.save()
+            subscriber = form.save()
             messages.success(request, 'Thank you for subscribing! We will notify you soon.')
+            email_new_subscribers(request, subscriber)
             return redirect('homepage')
         else:
             if 'email' in form.errors:
@@ -32,13 +34,19 @@ def index(request):
     
     return render(request, 'core/index.html', {'form': form, 'projects': projects, 'resume' : resume})
 
+
+
 def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            form.save()
-            messages.success(request, 'Thank you for contacting us! I will get back to you soon.')
-            return redirect('homepage')  # Redirect to avoid form resubmission
+
+            if form.save():
+                messages.success(request, 'Thank you for contacting us! I will get back to you soon.')
+                return redirect('homepage')  # Redirect to avoid form resubmission
+            else:
+                messages.error(request, 'Something happend. Plrase contact via email address.')
+
         else:
             # Handle specific field errors
             for field, errors in form.errors.items():
