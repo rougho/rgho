@@ -51,7 +51,11 @@ class ResumeAdmin(admin.ModelAdmin):
         ('Metadata', {
             'fields': ('createdAt',),
             'classes': ('collapse',)
-        })
+        }),        
+        ('Resume PDF', {
+            'fields': ('pdf_resume',)
+        }),
+
     )
     
     inlines = [
