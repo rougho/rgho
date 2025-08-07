@@ -1,5 +1,8 @@
 from django.db import models
+from django.db.models.signals import post_delete, pre_save
+from django.dispatch import receiver
 from phonenumber_field.modelfields import PhoneNumberField
+import os
 
 
 # Create your models here.
@@ -20,6 +23,7 @@ def image_upload_path(instance, filename):
 
 class Resume(models.Model):
     image = models.ImageField(upload_to=image_upload_path)
+    pdf_resume = models.FileField(upload_to=image_upload_path, blank=True, null=True, help_text="Upload your resume as PDF")
     full_name = models.CharField(default='Rouhollah Ghobadinezhad', null=False, max_length=30, blank=False)
     birthday = models.DateField(blank=False, null=False)
     email = models.EmailField(blank=False, null=False)
@@ -78,4 +82,39 @@ class Other(models.Model):
     connect_to = models.ForeignKey(Resume, on_delete=models.CASCADE, related_name='others')
     title = models.CharField(max_length=100, null=False, blank=False)
     description = models.TextField(null=False, blank=False)
+
+
+# Signal handlers to delete files when model instances are deleted
+@receiver(post_delete, sender=Resume)
+def delete_resume_files(sender, instance, **kwargs):
+    """Delete image and PDF files when Resume instance is deleted"""
+    if instance.image:
+        if os.path.isfile(instance.image.path):
+            os.remove(instance.image.path)
+    
+    if instance.pdf_resume:
+        if os.path.isfile(instance.pdf_resume.path):
+            os.remove(instance.pdf_resume.path)
+
+
+@receiver(pre_save, sender=Resume)
+def delete_old_files_on_change(sender, instance, **kwargs):
+    """Delete old files when new files are uploaded"""
+    if not instance.pk:
+        return False  # New instance, nothing to delete
+
+    try:
+        old_resume = Resume.objects.get(pk=instance.pk)
+    except Resume.DoesNotExist:
+        return False
+
+    # Delete old image if a new one is uploaded
+    if old_resume.image and old_resume.image != instance.image:
+        if os.path.isfile(old_resume.image.path):
+            os.remove(old_resume.image.path)
+    
+    # Delete old PDF if a new one is uploaded
+    if old_resume.pdf_resume and old_resume.pdf_resume != instance.pdf_resume:
+        if os.path.isfile(old_resume.pdf_resume.path):
+            os.remove(old_resume.pdf_resume.path)
 

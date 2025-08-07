@@ -61,7 +61,7 @@
    })(window, document, "clarity", "script", "kss8za9j58");
 </script> -->
 
-      <title>RG Portfolio | {% block page_title %}{% endblock%}</title>
+      <title>{% block page_title %}{% endblock%} | RG Portfolio</title>
    </head>
    <body>
       <!-- Navbar -->
@@ -83,7 +83,7 @@
                     <a class="nav-link" href="{% url 'resume' %}">Resume</a>
                 </li>
                 <li class="nav-item me-4">
-                    <a class="nav-link" href="#">Blog</a>
+                    <a class="nav-link" href="{% url 'blog_home_page' %}">Blog</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}" href="{% url 'contact' %}">Contact</a>
@@ -175,16 +175,16 @@
                      <div class="d-lg-block collapse show" id="collapseLanding" data-bs-parent="#ft-links">
                         <ul class="list-unstyled mb-0 py-3 py-lg-0">
                            <li class="mb-2">
-                              <a href="./index.html" class="text-decoration-none text-reset">Django App Development</a>
+                              <a href="#" class="text-decoration-none text-reset">Django App Development</a>
                            </li>
                            <li class="mb-2">
-                              <a href="#!" class="text-decoration-none text-reset">Python Development</a>
+                              <a href="#" class="text-decoration-none text-reset">Python Development</a>
                            </li>
                            <li class="mb-2">
-                              <a href="#!" class="text-decoration-none text-reset">Hardware</a>
+                              <a href="#" class="text-decoration-none text-reset">Hardware</a>
                            </li>
                            <li class="mb-2">
-                              <a href="#!" class="text-decoration-none text-reset">System Administration</a>
+                              <a href="#" class="text-decoration-none text-reset">System Administration</a>
                            </li>
                         </ul>
                      </div>
@@ -204,13 +204,7 @@
                      <div class="collapse d-lg-block" id="collapseAccounts" data-bs-parent="#ft-links">
                         <ul class="list-unstyled mb-0 py-3 py-lg-0">
                            <li class="mb-2">
-                              <a href="#!" class="text-decoration-none text-reset">My Education</a>
-                           </li>
-                           <li class="mb-2">
-                              <a href="#!" class="text-decoration-none text-reset">Skills</a>
-                           </li>
-                           <li class="mb-2">
-                              <a href="#!" class="text-decoration-none text-reset">Resume</a>
+                              <a href="{% url 'resume' %}" class="text-decoration-none text-reset">Resume</a>
                            </li>
                            <li class="mb-2">
                               <a href="#!" class="text-decoration-none text-reset">Blog</a>
@@ -278,7 +272,7 @@
          <div class="col-lg-3 col-12">
             <div class="me-7">
                <h4 class="mb-4">Location</h4>
-               <p class="text-body-secondary">14478, Potsdam</p>
+               <p class="text-body-secondary">Potsdam, <br>Germany</p>
             </div>
          </div>
       </div>

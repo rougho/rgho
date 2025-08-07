@@ -24,7 +24,10 @@ Resume
                      <figure class="mb-4 mb-md-0">
                 {% if resume.image %}
                     <img src="{{ resume.image.url }}" alt="{{ resume.full_name }}" class="img-fluid rounded-3">
-                {% endif %}                     </figure>
+                {% else %}
+                    <img src="{% static 'assets/images/perosnal-portfolio/profile_photo_temp.jpg' %}" alt="profile_photo_template" class="img-fluid rounded-3">
+                {% endif %}                     
+            </figure>
                   </div>
                   <div class="col-lg-5 offset-lg-1 col-md-6 col-12">
                      <span class="text-primary fw-semibold">01</span>
@@ -43,13 +46,14 @@ Resume
                 {% if resume.linkedin %}
                     <p><i class="bi bi-linkedin align-middle me-2resume-icons"></i><a href="{{ resume.linkedin }}" target="_blank">{{ resume.linkedin }}</a></p>
                 {% endif %}
+                
             </div>
                      </div>
 
                   </div>
                </div>
 
-        <div class="container pt-6 text-center">
+        <div class="container text-center  mt-9">
         {% if resume.experiences.all %}
             <div class="text-center mb-xl-7 mb-5 border-bottom">
                 <h2 class="mb-3">Experience</h2>
@@ -72,7 +76,7 @@ Resume
 
             <br><br>
         <!-- Projects Section -->
-        <div class="container pt-6 text-center">
+        <div class="container text-center mt-9">
         {% if resume.projects.all %}
             <div class="text-center mb-xl-7 mb-5 border-bottom">
                 <h2 class="mb-3">Projects</h2>
@@ -101,7 +105,7 @@ Resume
         
             <br><br>
         <!-- Education Section -->
-        <div class="container pt-6 text-center">
+        <div class="container text-center mt-9">
         {% if resume.educations.all %}
             <div class="text-center mb-xl-7 mb-5 border-bottom">
                 <h2 class="mb-3">Education</h2>
@@ -126,33 +130,59 @@ Resume
             </div>
         {% endif %}
         
-
-        <!-- Skills Section -->
+                    <br><br>
+        <!-- Projects Section -->
+        <div class="container text-center mt-9">
         {% if resume.skills.all %}
-            <div class="row mt-5">
-                <div class="col-12">
-                    <h3>Skills</h3>
-                    {% regroup resume.skills.all by category as skill_groups %}
-                    {% for group in skill_groups %}
-                        <h5>{{ group.grouper }}</h5>
+            <div class="text-center mb-xl-7 border-bottom mb-5">
+                <h2 >Skills</h2>
+            </div>
+            {% regroup resume.skills.all by category as skill_groups %}
+            {% for group in skill_groups %}
+            <div class="row">
+                <div class="col text-lg-start text-start">
+                        <h4 class="text-primary mb-2">{{ group.grouper }}</h4>
                         <ul>
                             {% for skill in group.list %}
-                                <li>{{ skill.name }} - {{ skill.level|title }}</li>
+                                <li>{{ skill.name }}</li>
                             {% endfor %}
                         </ul>
-                    {% endfor %}
                 </div>
             </div>
+            {% endfor %}
+            </div>
         {% endif %}
-        
-    </div>
-{% else %}
-    <div class="container my-5">
-        <div class="alert alert-warning" role="alert">
-            <h4 class="alert-heading">No Resume Found!</h4>
-            <p>Please create a resume from the admin panel first.</p>
+
+
+        <!-- Download Resume -->
+        <div class="container text-center mt-9 mb-9">
+        {% if resume.pdf_resume %}
+            <div class="text-center mb-xl-7 border-bottom mb-5">
+                <h2 >Download Resume</h2>
+            </div>
+            <div class="row">
+                    <div class="mt-3">
+                        <a href="{% url 'download_resume_pdf' resume.id %}" class="btn btn-success">
+                            <i class="bi bi-download me-2"></i>Download Resume as PDF
+                        </a>
+                    </div>
+            </div>
+            </div>        
         </div>
+        {% endif %}
+
+    {% else %}
+        <div class="container d-flex align-items-center justify-content-center" style="height: 70vh;">
+            <div class="row w-100">
+                <div class="col-xl-8 offset-xl-2 col-12">
+                    <div class="alert alert-warning text-center" role="alert">
+                        <h4 class="alert-heading text-warning">- No Resume Found! -</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
     </div>
-{% endif %}
 
 {% endblock %}
