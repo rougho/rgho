@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎯 Got Your Message! - RGHO</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f5f5f5;">
+    <!-- Main Container Table -->
+    <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f5f5f5;">
+        <tr>
+            <td align="center" style="padding: 40px 20px;">
+                <!-- Content Table -->
+                <table width="600" cellpadding="0" cellspacing="0" style="background-color: white; border: 1px solid #ddd; border-radius: 8px;">
+                    <!-- Header Section -->
+                    <tr>
+                        <td align="center" style="padding: 40px 20px; text-align: center;">
+                            <!-- Email-safe Bootstrap-style Success Icon -->
+                            <table cellpadding="0" cellspacing="0" style="margin: 0 auto 20px auto; width: 80px; height: 80px;">
+                                <tr>
+                                    <td style="width: 80px; height: 80px; background-color: #28a745; border-radius: 40px; text-align: center; vertical-align: middle; font-family: Arial, sans-serif;">
+                                        <span style="color: white; font-size: 50px; font-weight: bold; line-height: 80px;">✓</span>
+                                    </td>
+                                </tr>
+                            </table>
+                            <h1 style="margin: 0; color: #333; font-size: 28px; font-weight: bold; text-align: center;">Thanks for reaching out!</h1>
+                        </td>
+                    </tr>
+                    <!-- Content Section -->
+                    <tr>
+                        <td style="padding: 0 40px 40px 40px; font-size: 16px; line-height: 1.6; color: #555; text-align: center;">
+                            <p style="margin: 0 0 16px 0; text-align: center;">Hello <strong>{{ full_name }}</strong>,</p>
+                            <p style="margin: 0 0 16px 0; text-align: center;">Your message just landed in my inbox! 📬<br>I'm excited to connect and will be in touch within 24-48 hours. Thanks for taking the time to get in touch!</p>
+                            <p style="margin: 0 0 16px 0; text-align: center;">Reference ID: <strong>#{% now "Ymd" %}-{{ id|stringformat:"04d" }}</strong></p>
+                            <p style="margin: 0; text-align: center;">Best regards,<br>Rouhollah Ghobadinezad</p>
+                        </td>
+                    </tr>
+                    <!-- Footer Section -->
+                    <tr>
+                        <td style="padding: 30px 40px; background-color: #f8f9fa; border-top: 1px solid #e9ecef; text-align: center; font-size: 14px; color: #6c757d;">
+        
+                            <p style="margin: 0 0 8px 0;">
+                                📧 Email: <a href="mailto:rohi@rgho.de" style="color: #007bff; text-decoration: none;">rohi@rgho.de</a><br>
+                                🌐 Website: <a href="https://rgho.de" style="color: #007bff; text-decoration: none;">rgho.de</a>
+                            </p>
+                            <p style="margin: 0; font-size: 12px; color: #868e96;">
+                                This email was sent because you contacted us through our website.<br>
+                                © 2025 rgho.de. All rights reserved.
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

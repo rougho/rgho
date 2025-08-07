@@ -3,6 +3,7 @@ from django.contrib import messages
 from .forms import EmailSubscriptionForm, ContactForm
 from projects.models import Project
 from resume.models import Resume
+from lib.emails_hanlder import email_new_subscribers, email_contact_confirmation
 
 # Create your views here.
 def base(request):
@@ -12,6 +13,7 @@ def index(request):
     if request.method == 'POST':
         form = EmailSubscriptionForm(request.POST)
         if form.is_valid():
+            email_new_subscribers(request, form.cleaned_data['email'])
             form.save()
             messages.success(request, 'Thank you for subscribing! We will notify you soon.')
             return redirect('homepage')
@@ -32,13 +34,26 @@ def index(request):
     
     return render(request, 'core/index.html', {'form': form, 'projects': projects, 'resume' : resume})
 
+
+
 def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            form.save()
-            messages.success(request, 'Thank you for contacting us! I will get back to you soon.')
-            return redirect('homepage')  # Redirect to avoid form resubmission
+            # Save the form first to get the ID
+            contact_instance = form.save()
+            
+            # Now get the data including the auto-generated ID
+            email = form.cleaned_data['email']
+            full_name = contact_instance.full_name  # Use the property from the model
+            contact_id = contact_instance.id
+            
+            if email_contact_confirmation(request, id=contact_id, email=email, full_name=full_name):
+                messages.success(request, 'Thank you for contacting me! I will get back to you soon.')
+                return redirect('homepage')  # Redirect to avoid form resubmission
+            else:
+                messages.error(request, 'Something happened. Please contact via email address after 48 hours.')
+
         else:
             # Handle specific field errors
             for field, errors in form.errors.items():
