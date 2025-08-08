@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
+from django.core.paginator import Paginator
+from django.db.models import Count
 import markdown
 
 from .models import Post, Category
@@ -16,7 +18,16 @@ def blog_home(request):
         'liked_by', 
         'bookmarked_by',
         'comments'
+
     ).order_by('-created_at')
+
+    paginator = Paginator(posts, 8)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+
+    top_categories = Category.objects.annotate(post_count=Count('posts')).order_by('-post_count')[:4]
+
 
     # Get 6 random categories
     all_categories = Category.objects.order_by('?')[:6]
@@ -26,6 +37,8 @@ def blog_home(request):
         'posts' : posts,
         'form' : form,
         'all_categories' : all_categories,
+        'page_obj' : page_obj,
+        'top_categories' : top_categories,
     }
     return render(request, 'blog/blog_home.html', context=context)
 
