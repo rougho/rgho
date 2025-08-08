@@ -7,10 +7,24 @@ class EmailSubscriptionForm(ModelForm):
     class Meta:
         model = EmailSubscription
         fields = ['email', 'agreement']
+        widgets = {
+            'email': forms.EmailInput(attrs={
+                'class': 'form-control border-0',
+                'placeholder': 'email@codescandy.com',
+                'required': True
+            }),
+            'agreement': forms.CheckboxInput(attrs={
+                'class': 'form-check-input',
+                'required': True
+            })
+        }
         error_messages = {
             'email': {
                 'required': 'Please enter an email address.',
                 'invalid': 'Please enter a valid email address.',
+            },
+            'agreement': {
+                'required': 'You must agree to receive newsletter updates.',
             }
         }
     

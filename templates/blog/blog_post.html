@@ -1,0 +1,61 @@
+ {% extends 'base.html' %}
+{% load static %}
+
+{% block page_title %}
+{{ post.title }}
+{% endblock %}
+
+{% block content %}
+ 
+ <main>
+         <div class="pattern-square"></div>
+
+         <!--Blog single start-->
+         <div class="py-xl-9 py-4">
+            <div class="container">
+               <div class="row">
+                  <article class="col-lg-8 offset-lg-2">
+                     <h1>{{ post.title}}</h1>
+                     <div class="d-flex align-items-center mt-lg-6 mt-4">
+                        <div class="me-5">
+                           <span class="fs-6">Written by</span>
+                           <div class="d-flex align-items-center mt-2">
+                                 <a href="#" class="text-reset fs-6">{{ post.author }}</a>
+                           </div>
+                        </div>
+                        <div class="me-auto">
+                           <span class="fs-6">Published on</span>
+                           <div class="mt-2 text-dark">
+                              <span class="fs-6">{{ post.published_at|date:"d.m.Y" }}</span>
+                           </div>
+                        </div>
+                        <div class="ms-auto">
+                           <span class="fs-6">Reading time</span>
+                           <div class="mt-2 text-dark">
+                              <span class="fs-6">
+                                {% if post.reading_time == 1 %}
+                                {{ post.reading_time }} minute
+                                {% else %}
+                                {{ post.reading_time }} minutes
+                                {% endif %}
+                            </span>
+                           </div>
+                        </div>
+                     </div>
+
+                     {% if post.featured_image %}
+                     <figure class="my-6">
+                        <img src="{{ post.featured_image.url }}" alt="{{ featured_image_alt }}" class="rounded-3 img-fluid w-100" />
+                     </figure>
+                    {% endif %}
+                    <div class="mt-6 markdown-content">
+                        {{ post.content|safe }}
+                    </div>
+
+                     
+                    </article>
+               </div>
+            </div>
+         <!--Newsletter end-->
+      </main>
+{% endblock %}

@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'core',
     'projects',
     'resume',
+    'blog',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
