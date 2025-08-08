@@ -46,23 +46,23 @@ Blog
 
                <div class="col-xxl-9 col-lg-8 col-12">
                   <div class="row g-5">
-                     {% for post in posts %}
+                  {% for post in page_obj %}
 
                      <div class="col-xxl-6 col-12" data-cue="fadeIn">
                         <a href="{% url 'blog_post' post.slug %}">
                            <div class="rounded-3 p-4 image-blur" style="
-                                    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.8) 100%), url({% static 'assets/images/blog/blog-img-3.jpg' %});
+                                    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.8) 100%), url({{ post.featured_image.url }});
                                     background-position: center;
                                     background-repeat: no-repeat;
                                     background-size: cover;
                                  ">
                               <div class="d-flex flex-column gap-10" data-cue="zoomOut">
-                                 {% for category in post.categories.all %}
                                  <div>
+                                    {% for category in post.categories.all|slice:':4' %}
                                     <span
                                        class="badge border rounded-pill border-white text-white-stable px-3 py-2 fw-medium fs-6">{{category}}</span>
-                                 </div>
                                  {% endfor %}
+                                 </div>
 
                                  <div class="d-flex flex-column gap-4">
                                     <div class="d-flex flex-column gap-1">
@@ -82,9 +82,46 @@ Blog
                            </div>
                         </a>
                      </div>
-                     {% endfor %}
+                  {% endfor %}
 
                   </div>
+                  <!-- Pagination controls -->
+
+                  <nav aria-label="Page navigation" class="my-5">
+                  <ul class="pagination justify-content-center">
+                     {% if page_obj.has_previous %}
+                        <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.previous_page_number }}" tabindex="-1">Previous</a>
+                        </li>
+                     {% else %}
+                        <li class="page-item disabled">
+                        <span class="page-link">Previous</span>
+                        </li>
+                     {% endif %}
+
+                     {% for num in page_obj.paginator.page_range %}
+                        {% if page_obj.number == num %}
+                        <li class="page-item active">
+                           <span class="page-link">{{ num }}</span>
+                        </li>
+                        {% else %}
+                        <li class="page-item">
+                           <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                        </li>
+                        {% endif %}
+                     {% endfor %}
+
+                     {% if page_obj.has_next %}
+                        <li class="page-item">
+                        <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+                        </li>
+                     {% else %}
+                        <li class="page-item disabled">
+                        <span class="page-link">Next</span>
+                        </li>
+                     {% endif %}
+                  </ul>
+                  </nav>
                </div>
 
                <!-- Blog Posts ENDS -->
@@ -93,6 +130,44 @@ Blog
                <!-- Newsletter -->
                <div class="col-xxl-3 col-lg-4 col-12">
                   <div class="d-flex flex-column gap-5" data-cue="fadeIn">
+                     <div class="bg-primary bg-opacity-10 rounded-3 p-md-5 p-4" data-cue="zoomOut">
+                        <div class="d-flex flex-column justify-content-center gap-4">
+                        <form class="form-inline">
+                        <div class="input-group">
+                           <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                           <button class="btn btn-outline-success" type="submit">
+                              <span class="input-group-text bg-transparent border-0 p-0">
+                                 <i class="bi bi-search fs-4 text-dark text-light" style="font-size: 1.5rem;"></i>
+                              </span>
+                           </button>
+                        </div>
+                        </form>
+                           <div class="d-flex flex-column">
+                              <span class="border-bottom"></span>
+                           </div>
+                           <div class="d-flex flex-column gap-2">
+                              <h3 class="mb-0 text-primary-emphasis h4">Top Categories</h3>
+                              <ul class="list-group">
+                                 {% if top_categories %}
+                                 {% for category in top_categories %}
+                                 <li class="list-group-item d-flex justify-content-between align-items-center text-white-stable">
+                                    <a href="" class="link text-white-stable text-dark">{{ category.name }}</a> 
+                                    <span class="badge badge-primary badge-pill">{{ category.post_count }}</span>
+                                 </li>
+                                 {% endfor %}
+                                 {% else %}
+                                    <li class="list-group-item d-flex justify-content-between align-items-center text-white-stable">
+                                    <a href="" class="link text-warning">- No Category -</a> 
+                                    <span class="badge badge-primary badge-pill">0</span>
+                                 </li>
+                                 {% endif %}
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+
+
+
                      <div class="bg-success bg-opacity-10 rounded-3 p-md-5 p-4" data-cue="zoomOut">
                         <div class="d-flex flex-column gap-4">
                            <div>
@@ -163,6 +238,9 @@ Blog
                            </form>
                         </div>
                      </div>
+
+
+
                   </div>
                </div>
                <!-- Newsletter ENDS-->
@@ -170,231 +248,6 @@ Blog
             </div>
          </div>
       </section>
-      <!-- Event start -->
-      <section class="my-xl-9 my-5" data-cue="fadeIn">
-         <div class="container">
-            <div class="">
-               <div class="row">
-                  <div class="col-12" data-cue="fadeIn">
-                     <ul class="nav nav-pills mb-6 nav-primary" id="pills-tab" role="tablist">
-                        <!-- All Posts tab -->
-                        <li class="nav-item" role="presentation">
-                           <button class="nav-link me-2 active" 
-                                   type="button" 
-                                   data-category="all"
-                                   onclick="filterPosts('all')">
-                              All Posts
-                           </button>
-                        </li>
-                        <!-- Category tabs -->
-                        {% for category in all_categories %}
-                        <li class="nav-item" role="presentation">
-                           <button class="nav-link me-2" 
-                                   type="button" 
-                                   data-category="{{ category.slug }}"
-                                   onclick="filterPosts('{{ category.slug }}')">
-                              {{ category.name }}
-                           </button>
-                        </li>
-                        {% endfor %}
-                     </ul>
-                     
-                     <!-- Posts Content -->
-                     <div class="mb-6">
-                        <!-- Bootstrap Carousel -->
-                        <div id="postsCarousel" class="carousel slide" data-bs-ride="carousel">
-                           <div class="carousel-inner">
-                              <!-- First slide (posts 1-3 on large screens, 1-2 on smaller screens) -->
-                              <div class="carousel-item active">
-                                 <div class="row g-4">
-                                    {% for post in posts|slice:":3" %}
-                                    <div class="col-lg-4 col-md-6 col-12 post-item{% if forloop.counter > 2 %} d-none d-lg-block{% endif %}" 
-                                         data-categories="{% for category in post.categories.all %}{{ category.slug }}{% if not forloop.last %},{% endif %}{% endfor %}"
-                                         data-cue="zoomIn">
-                                       <div class="card h-100">
-                                          <div class="card-body d-flex flex-column gap-3">
-                                             <!-- Post Image -->
-                                             <img src="{% static 'assets/images/blog/blog-img-1.jpg' %}" 
-                                                  alt="{{ post.title }}" 
-                                                  class="rounded img-fluid w-100" />
-                                             
-                                             <!-- Post Content -->
-                                             <div class="d-flex flex-column gap-3 flex-grow-1">
-                                                <!-- Categories -->
-                                                <div class="d-flex flex-wrap gap-1">
-                                                   {% for category in post.categories.all %}
-                                                   <span class="badge bg-primary-subtle text-primary-emphasis">{{ category.name }}</span>
-                                                   {% endfor %}
-                                                </div>
-                                                
-                                                <!-- Title and Excerpt -->
-                                                <div class="d-flex flex-column gap-2">
-                                                   <h3 class="mb-0 h6">
-                                                      <a href="{% url 'blog_post' post.slug %}" class="text-reset text-decoration-none">
-                                                         {{ post.title }}
-                                                      </a>
-                                                   </h3>
-                                                   <p class="mb-0 text-muted small">
-                                                      {{ post.excerpt|truncatechars:80 }}
-                                                   </p>
-                                                </div>
-                                                
-                                                <!-- Meta Info -->
-                                                <div class="mt-auto d-flex align-items-center justify-content-between">
-                                                   <div class="d-flex align-items-center gap-2">
-                                                      <img src="{% static 'assets/images/avatar/avatar-3.jpg' %}" 
-                                                           alt="{{ post.author }}" 
-                                                           class="avatar avatar-xs rounded-circle" />
-                                                      <div class="fs-7 text-muted">{{ post.author }}</div>
-                                                   </div>
-                                                   <span class="fs-7 text-muted">{{ post.published_at|date:"M d" }}</span>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    {% endfor %}
-                                 </div>
-                              </div>
-                              
-                              <!-- Second slide (posts 4-6 on large screens, posts 3-4 on smaller screens) -->
-                              {% if posts|length > 3 %}
-                              <div class="carousel-item">
-                                 <div class="row g-4">
-                                    {% for post in posts|slice:"3:6" %}
-                                    <div class="col-lg-4 col-md-6 col-12 post-item{% if forloop.counter > 2 %} d-none d-lg-block{% endif %}" 
-                                         data-categories="{% for category in post.categories.all %}{{ category.slug }}{% if not forloop.last %},{% endif %}{% endfor %}"
-                                         data-cue="zoomIn">
-                                       <div class="card h-100">
-                                          <div class="card-body d-flex flex-column gap-3">
-                                             <!-- Post Image -->
-                                             <img src="{% static 'assets/images/blog/blog-img-1.jpg' %}" 
-                                                  alt="{{ post.title }}" 
-                                                  class="rounded img-fluid w-100" />
-                                             
-                                             <!-- Post Content -->
-                                             <div class="d-flex flex-column gap-3 flex-grow-1">
-                                                <!-- Categories -->
-                                                <div class="d-flex flex-wrap gap-1">
-                                                   {% for category in post.categories.all %}
-                                                   <span class="badge bg-primary-subtle text-primary-emphasis">{{ category.name }}</span>
-                                                   {% endfor %}
-                                                </div>
-                                                
-                                                <!-- Title and Excerpt -->
-                                                <div class="d-flex flex-column gap-2">
-                                                   <h3 class="mb-0 h6">
-                                                      <a href="{% url 'blog_post' post.slug %}" class="text-reset text-decoration-none">
-                                                         {{ post.title }}
-                                                      </a>
-                                                   </h3>
-                                                   <p class="mb-0 text-muted small">
-                                                      {{ post.excerpt|truncatechars:80 }}
-                                                   </p>
-                                                </div>
-                                                
-                                                <!-- Meta Info -->
-                                                <div class="mt-auto d-flex align-items-center justify-content-between">
-                                                   <div class="d-flex align-items-center gap-2">
-                                                      <img src="{% static 'assets/images/avatar/avatar-3.jpg' %}" 
-                                                           alt="{{ post.author }}" 
-                                                           class="avatar avatar-xs rounded-circle" />
-                                                      <div class="fs-7 text-muted">{{ post.author }}</div>
-                                                   </div>
-                                                   <span class="fs-7 text-muted">{{ post.published_at|date:"M d" }}</span>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    {% endfor %}
-                                 </div>
-                              </div>
-                              {% endif %}
-                              
-                              <!-- Third slide (posts 5-6 for medium screens only) -->
-                              {% if posts|length > 4 %}
-                              <div class="carousel-item d-lg-none">
-                                 <div class="row g-4">
-                                    {% for post in posts|slice:"4:6" %}
-                                    <div class="col-md-6 col-12 post-item" 
-                                         data-categories="{% for category in post.categories.all %}{{ category.slug }}{% if not forloop.last %},{% endif %}{% endfor %}"
-                                         data-cue="zoomIn">
-                                       <div class="card h-100">
-                                          <div class="card-body d-flex flex-column gap-3">
-                                             <!-- Post Image -->
-                                             <img src="{% static 'assets/images/blog/blog-img-1.jpg' %}" 
-                                                  alt="{{ post.title }}" 
-                                                  class="rounded img-fluid w-100" />
-                                             
-                                             <!-- Post Content -->
-                                             <div class="d-flex flex-column gap-3 flex-grow-1">
-                                                <!-- Categories -->
-                                                <div class="d-flex flex-wrap gap-1">
-                                                   {% for category in post.categories.all %}
-                                                   <span class="badge bg-primary-subtle text-primary-emphasis">{{ category.name }}</span>
-                                                   {% endfor %}
-                                                </div>
-                                                
-                                                <!-- Title and Excerpt -->
-                                                <div class="d-flex flex-column gap-2">
-                                                   <h3 class="mb-0 h6">
-                                                      <a href="{% url 'blog_post' post.slug %}" class="text-reset text-decoration-none">
-                                                         {{ post.title }}
-                                                      </a>
-                                                   </h3>
-                                                   <p class="mb-0 text-muted small">
-                                                      {{ post.excerpt|truncatechars:80 }}
-                                                   </p>
-                                                </div>
-                                                
-                                                <!-- Meta Info -->
-                                                <div class="mt-auto d-flex align-items-center justify-content-between">
-                                                   <div class="d-flex align-items-center gap-2">
-                                                      <img src="{% static 'assets/images/avatar/avatar-3.jpg' %}" 
-                                                           alt="{{ post.author }}" 
-                                                           class="avatar avatar-xs rounded-circle" />
-                                                      <div class="fs-7 text-muted">{{ post.author }}</div>
-                                                   </div>
-                                                   <span class="fs-7 text-muted">{{ post.published_at|date:"M d" }}</span>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    {% endfor %}
-                                 </div>
-                              </div>
-                              {% endif %}
-                           </div>
-                           
-                           <!-- Carousel indicators (hidden for cleaner look) -->
-                           <div class="carousel-indicators d-none">
-                              <button type="button" data-bs-target="#postsCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                              {% if posts|length > 3 %}
-                              <button type="button" data-bs-target="#postsCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                              {% endif %}
-                           </div>
-                        </div>
-                        
-                        <!-- No posts message -->
-                        <div class="text-center py-5 d-none" id="no-posts-message">
-                           <div class="mb-4">
-                              <i class="bi bi-journal-x text-muted" style="font-size: 3rem;"></i>
-                           </div>
-                           <h4 class="text-muted">No posts found</h4>
-                           <p class="text-muted">No posts are available in this category.</p>
-                        </div>
-                     </div>
-                     <div class="d-flex align-items-center justify-content-center">
-                        <a href="#!" class="btn btn-light">See All Post</a>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-      <!-- Event end -->
 
    </main>
 {% endblock %}
