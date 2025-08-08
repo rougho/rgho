@@ -1,31 +1,39 @@
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
+from django.urls import reverse
 import logging
 
 logger = logging.getLogger(__name__)
 
-def email_new_subscribers(request, subscriber):
+def email_new_subscribers(request, subscription_instance):
     try:
+        # Build the correct unsubscribe URL
+        unsubscribe_path = reverse('unsubscribe', kwargs={'uuid': subscription_instance.uuid})
+        unsubscribe_url = request.build_absolute_uri(unsubscribe_path)
+        
         template = render_to_string(
                 'emails/subscriptions.html',
                 { 
-                    'receiver' : subscriber.split('@')[0]
+                    'receiver': subscription_instance.email.split('@')[0],
+                    'uuid': subscription_instance.uuid,
+                    'unsubscribe_url': unsubscribe_url,
+                    'request': request
                 }
             )
         
         email = EmailMessage(
             subject="🚀 You're In! Welcome aboard!",
             body=template,
-            to=[subscriber]
+            to=[subscription_instance.email]
         )
 
         email.content_subtype = 'html'
         email.send()
-        logger.info(f"Subscription email sent successfully to {subscriber}")
+        logger.info(f"Subscription email sent successfully to {subscription_instance.email}")
         return True
         
     except Exception as e:
-        logger.error(f"Failed to send subscription email to {subscriber}: {str(e)}")
+        logger.error(f"Failed to send subscription email to {subscription_instance.email}: {str(e)}")
         return False
 
 

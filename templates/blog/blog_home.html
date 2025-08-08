@@ -1,9 +1,833 @@
 {% extends 'base.html' %}
 {% load static %}
+{# Django HTML Template - CSS validation disabled for template syntax #}
 
 {% block page_title %}
 Blog
 {% endblock %}
 
 {% block content %}
+<main>
+      <!-- Header start -->
+      <section class="mt-8" data-cue="fadeIn">
+         <div class="container">
+            <a href="#!">
+               <div class="py-lg-10 rounded-3 px-lg-8 py-md-8 px-md-6 p-4 image-blur"
+                  style="background-image: url('{% static "assets/images/landings/agency/agency-hero-img.jpg" %}'); background-position: center; background-repeat: no-repeat; background-size: cover;">
+                  <div class="row g-0">
+                     <div class="col-xxl-6 col-xl-7 col-lg-8">
+                        <div class="d-flex flex-column gap-10" data-cue="zoomIn">
+                           <div>
+                              <span
+                                 class="badge border border-white text-white-stable px-3 py-2 fw-medium rounded-pill fs-6">Blog</span>
+                           </div>
+                           <div class="d-flex flex-column gap-6">
+                              <div class="d-flex flex-column gap-3">
+                                 <h1 class="mb-0 text-white-stable">The Code Feed & Fresh Finds
+                                 </h1>
+                                 <p class="mb-0 text-white-stable">
+                                    Serving up the freshest programming ingredients from across the web. Where APIs are the main course, Python is the secret sauce, and every tutorial is a recipe for digital success. Warning: may contain traces of caffeine and existential debugging sessions.
+                                 </p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </a>
+         </div>
+      </section>
+      <!-- Header end -->
+
+      <!-- Events start -->
+      <section class="mb-xl-9 mb-5 my-8" data-cue="fadeIn">
+         <div class="container">
+            <div class="row gy-5 gy-lg-0">
+               <div class="col-xxl-9 col-lg-8 col-12">
+                  <div class="row g-5">
+                     <div class="col-xxl-6 col-12" data-cue="fadeIn">
+                        <a href="#!">
+                           <div class="rounded-3 p-4 image-blur" style="
+                                    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.8) 100%), url({% static 'assets/images/blog/blog-img-3.jpg' %});
+                                    background-position: center;
+                                    background-repeat: no-repeat;
+                                    background-size: cover;
+                                 ">
+                              <div class="d-flex flex-column gap-10" data-cue="zoomOut">
+                                 <div>
+                                    <span
+                                       class="badge border rounded-pill border-white text-white-stable px-3 py-2 fw-medium fs-6">Sport</span>
+                                 </div>
+                                 <div class="d-flex flex-column gap-4">
+                                    <div class="d-flex flex-column gap-1">
+                                       <h3 class="mb-0 text-white-stable text-truncate">The writing trends that will
+                                          define 2025 (Get Excited)</h3>
+                                       <p class="mb-0 text-white-stable text-truncate">
+                                          Mollit minim officia commodo voluptate reprehenderit incididunt ullamco qui
+                                          consectetur. Minim eiusmod elit quis non non elit id enim aliquip nisi eu.
+                                       </p>
+                                    </div>
+                                    <div class="d-flex align-items-center align-items-center gap-3">
+                                       <div class="d-flex flex-row align-items-center gap-2">
+                                          <img src="{% static 'assets/images/avatar/avatar-1.jpg' %}" alt="Avatar"
+                                             class="avatar avatar-xs rounded-circle" />
+                                          <div class="mb-0 text-white-stable fs-6">Jitu Chauhan</div>
+                                       </div>
+                                       <span class="text-white-stable fs-6">Feb 28, 2025</span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </a>
+                     </div>
+                     <div class="col-xxl-6 col-12" data-cue="fadeIn">
+                        <a href="#!">
+                           <div class="rounded-3 p-4 image-blur" style="background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 10%, rgba(0,0,0,0.8) 100%), url('{% static "assets/images/blog/blog-img-2.jpg" %}'); background-position: center; background-repeat: no-repeat; background-size: cover;">
+                              <div class="d-flex flex-column gap-10" data-cue="zoomOut">
+                                 <div>
+                                    <span
+                                       class="badge border rounded-pill border-white text-white-stable px-3 py-2 fw-medium fs-6">Technology</span>
+                                 </div>
+                                 <div class="d-flex flex-column gap-4">
+                                    <div class="d-flex flex-column gap-1">
+                                       <h3 class="mb-0 text-white-stable text-truncate">A deep introduction to Bootstrap
+                                          Block Themes</h3>
+                                       <p class="mb-0 text-white-stable text-truncate">
+                                          Velit enim irure cillum irure labore dolor amet incididunt. Consequat tempor
+                                          duis sint cupidatat amet esse sint. Tempor exercitation occaecat nisi eu non
+                                          Lorem fugiat anim voluptate velit.
+                                       </p>
+                                    </div>
+                                    <div class="d-flex align-items-center align-items-center gap-3">
+                                       <div class="d-flex flex-row align-items-center gap-2">
+                                          <img src="{% static 'assets/images/avatar/avatar-7.jpg' %}" alt="Avatar"
+                                             class="avatar avatar-xs rounded-circle" />
+                                          <div class="mb-0 text-white-stable fs-6">Anita Parmar</div>
+                                       </div>
+                                       <span class="text-white-stable fs-6">May 28, 2025</span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </a>
+                     </div>
+                     <div class="col-xxl-6 col-12" data-cue="fadeIn">
+                        <a href="#!">
+                           <div class="rounded-3 p-4 image-blur" style="
+                                    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.8) 100%), url({% static 'assets/images/blog/blog-img-8.jpg' %});
+                                    background-position: center;
+                                    background-repeat: no-repeat;
+                                    background-size: cover;
+                                 ">
+                              <div class="d-flex flex-column gap-10" data-cue="zoomOut">
+                                 <div>
+                                    <span
+                                       class="badge border rounded-pill border-white text-white-stable px-3 py-2 fw-medium fs-6">Business</span>
+                                 </div>
+                                 <div class="d-flex flex-column gap-4">
+                                    <div class="d-flex flex-column gap-1">
+                                       <h3 class="mb-0 text-white-stable text-truncate">You will destroy yourself
+                                          financially if you save</h3>
+                                       <p class="mb-0 text-white-stable text-truncate">
+                                          Elit qui do aliquip incididunt non laboris Lorem ad sint. Pariatur veniam
+                                          ipsum voluptate labore cillum non aliqua qui labore voluptate qui. Id commodo
+                                          laborum est est pariatur consectetur exercitation nostrud.
+                                       </p>
+                                    </div>
+                                    <div class="d-flex align-items-center align-items-center gap-3">
+                                       <div class="d-flex flex-row align-items-center gap-2">
+                                          <img src="{% static 'assets/images/avatar/avatar-6.jpg' %}" alt="Avatar"
+                                             class="avatar avatar-xs rounded-circle" />
+                                          <div class="mb-0 text-white-stable fs-6">Sandip Chauhan</div>
+                                       </div>
+                                       <span class="text-white-stable fs-6">May 16, 2025</span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </a>
+                     </div>
+                     <div class="col-xxl-6 col-12" data-cue="fadeIn">
+                        <a href="#!">
+                           <div class="rounded-3 p-4 image-blur" style="
+                                    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.8) 100%), url({% static 'assets/images/blog/blog-img-9.jpg' %});
+                                    background-position: center;
+                                    background-repeat: no-repeat;
+                                    background-size: cover;
+                                 ">
+                              <div class="d-flex flex-column gap-10" data-cue="zoomOut">
+                                 <div>
+                                    <span
+                                       class="badge border rounded-pill border-white text-white-stable px-3 py-2 fw-medium fs-6">Lifestyle</span>
+                                 </div>
+                                 <div class="d-flex flex-column gap-4">
+                                    <div class="d-flex flex-column gap-1">
+                                       <h3 class="mb-0 text-white-stable text-truncate">Block Template for startup
+                                          business</h3>
+                                       <p class="mb-0 text-white-stable text-truncate">
+                                          Enim nisi fugiat pariatur ut anim Lorem labore. Consectetur in minim pariatur
+                                          officia adipisicing eu duis. Deserunt incididunt minim duis ad eu amet
+                                          aliquip laboris voluptate.
+                                       </p>
+                                    </div>
+                                    <div class="d-flex align-items-center align-items-center gap-3">
+                                       <div class="d-flex flex-row align-items-center gap-2">
+                                          <img src="{% static 'assets/images/avatar/avatar-4.jpg' %}" alt="Avatar"
+                                             class="avatar avatar-xs rounded-circle" />
+                                          <div class="mb-0 text-white-stable fs-6">Manasvi Suthar</div>
+                                       </div>
+                                       <span class="text-white-stable fs-6">May 18, 2025</span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </a>
+                     </div>
+                     <div class="col-xxl-6 col-12" data-cue="fadeIn">
+                        <a href="#!">
+                           <div class="rounded-3 p-4 image-blur" style="
+                                    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.8) 100%), url({% static 'assets/images/blog/blog-img-3.jpg' %});
+                                    background-position: center;
+                                    background-repeat: no-repeat;
+                                    background-size: cover;
+                                 ">
+                              <div class="d-flex flex-column gap-10" data-cue="zoomOut">
+                                 <div>
+                                    <span
+                                       class="badge border rounded-pill border-white text-white-stable px-3 py-2 fw-medium fs-6">Sport</span>
+                                 </div>
+                                 <div class="d-flex flex-column gap-4">
+                                    <div class="d-flex flex-column gap-1">
+                                       <h3 class="mb-0 text-white-stable text-truncate">The writing trends that will
+                                          define 2025 (Get Excited)</h3>
+                                       <p class="mb-0 text-white-stable text-truncate">
+                                          Mollit minim officia commodo voluptate reprehenderit incididunt ullamco qui
+                                          consectetur. Minim eiusmod elit quis non non elit id enim aliquip nisi eu.
+                                       </p>
+                                    </div>
+                                    <div class="d-flex align-items-center align-items-center gap-3">
+                                       <div class="d-flex flex-row align-items-center gap-2">
+                                          <img src="{% static 'assets/images/avatar/avatar-1.jpg' %}" alt="Avatar"
+                                             class="avatar avatar-xs rounded-circle" />
+                                          <div class="mb-0 text-white-stable fs-6">Jitu Chauhan</div>
+                                       </div>
+                                       <span class="text-white-stable fs-6">Feb 28, 2025</span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </a>
+                     </div>
+                     <div class="col-xxl-6 col-12" data-cue="fadeIn">
+                        <a href="#!">
+                           <div class="rounded-3 p-4 image-blur" style="
+                                    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0.8) 100%), url({% static 'assets/images/blog/blog-img-2.jpg' %});
+                                    background-position: center;
+                                    background-repeat: no-repeat;
+                                    background-size: cover;
+                                 ">
+                              <div class="d-flex flex-column gap-10" data-cue="zoomOut">
+                                 <div>
+                                    <span
+                                       class="badge border rounded-pill border-white text-white-stable px-3 py-2 fw-medium fs-6">Technology</span>
+                                 </div>
+                                 <div class="d-flex flex-column gap-4">
+                                    <div class="d-flex flex-column gap-1">
+                                       <h3 class="mb-0 text-white-stable text-truncate">A deep introduction to Bootstrap
+                                          Block Themes</h3>
+                                       <p class="mb-0 text-white-stable text-truncate">
+                                          Velit enim irure cillum irure labore dolor amet incididunt. Consequat tempor
+                                          duis sint cupidatat amet esse sint. Tempor exercitation occaecat nisi eu non
+                                          Lorem fugiat anim voluptate velit.
+                                       </p>
+                                    </div>
+                                    <div class="d-flex align-items-center align-items-center gap-3">
+                                       <div class="d-flex flex-row align-items-center gap-2">
+                                          <img src="{% static 'assets/images/avatar/avatar-7.jpg' %}" alt="Avatar"
+                                             class="avatar avatar-xs rounded-circle" />
+                                          <div class="mb-0 text-white-stable fs-6">Anita Parmar</div>
+                                       </div>
+                                       <span class="text-white-stable fs-6">May 28, 2025</span>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </a>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-xxl-3 col-lg-4 col-12">
+                  <div class="d-flex flex-column gap-5" data-cue="fadeIn">
+                     <div class="bg-success bg-opacity-10 rounded-3 p-md-5 p-4" data-cue="zoomOut">
+                        <div class="d-flex flex-column gap-4">
+                           <div>
+                              <span class="bg-success-subtle text-success-emphasis rounded-circle icon-shape icon-xl">
+                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                    class="bi bi-envelope" viewBox="0 0 16 16">
+                                    <path
+                                       d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z" />
+                                 </svg>
+                              </span>
+                           </div>
+                           <div class="d-flex flex-column gap-2">
+                              <h3 class="mb-0 text-success-emphasis h4">Subscribe Newsletter</h3>
+                              <p class="mb-0 text-dark">Register now to get latest updates about the topics you
+                                 interest.</p>
+                           </div>
+                           <form class="needs-validation" novalidate>
+                              <div class="mb-3">
+                                 <label for="subscribeEmail" class="form-label visually-hidden">Email</label>
+
+                                 <input type="email" class="form-control border-0" id="subscribeEmail"
+                                    placeholder="email@codescandy.com" required="" />
+                                 <div class="invalid-feedback">Please enter email.</div>
+                              </div>
+
+                              <div class="d-grid">
+                                 <button class="btn btn-success" type="submit">Sign Up</button>
+                              </div>
+                           </form>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- Events end -->
+      <!-- Event start -->
+      <section class="my-xl-9 my-5" data-cue="fadeIn">
+         <div class="container">
+            <div class="">
+               <div class="row">
+                  <div class="col-12" data-cue="fadeIn">
+                     <ul class="nav nav-pills mb-6 nav-primary" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                           <a href="#" class="nav-link active me-2" id="pillsBusiness-tab" data-bs-toggle="pill"
+                              data-bs-target="#pillsBusiness" role="tab" aria-controls="pillsBusiness"
+                              aria-selected="true">
+                              Business
+                           </a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                           <a href="#" class="nav-link me-2" id="pillsLifestyle-tab" data-bs-toggle="pill"
+                              data-bs-target="#pillsLifestyle" role="tab" aria-controls="pillsLifestyle"
+                              aria-selected="false">
+                              Lifestyle
+                           </a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                           <a href="#" class="nav-link me-2" id="pillsSport-tab" data-bs-toggle="pill"
+                              data-bs-target="#pillsSport" role="tab" aria-controls="pillsSport" aria-selected="false">
+                              Sport
+                           </a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                           <a href="#" class="nav-link me-2" id="pillsTravel-tab" data-bs-toggle="pill"
+                              data-bs-target="#pillsTravel" role="tab" aria-controls="pillsTravel"
+                              aria-selected="false">
+                              Travel
+                           </a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                           <a href="#" class="nav-link me-2" id="pillsTechnology-tab" data-bs-toggle="pill"
+                              data-bs-target="#pillsTechnology" role="tab" aria-controls="pillsTechnology"
+                              aria-selected="false">
+                              Technology
+                           </a>
+                        </li>
+                     </ul>
+                     <div class="tab-content mb-6" id="pills-tabContent">
+                        <div class="tab-pane show active" id="pillsBusiness" role="tabpanel"
+                           aria-labelledby="pillsBusiness-tab" tabindex="0">
+                           <div class="table-responsive-xl">
+                              <div class="row flex-nowrap pb-4">
+                                 <div class="col-lg-4 col-md-6 col-12" data-cue="zoomIn">
+                                    <div class="card h-100">
+                                       <div class="card-body d-flex flex-column gap-5">
+                                          <img src="{% static 'assets/images/blog/blog-img-1.jpg' %}" alt="blog"
+                                             class="rounded img-fluid w-100" />
+                                          <div class="d-flex flex-column gap-4">
+                                             <div class="d-flex flex-column gap-2">
+                                                <h3 class="mb-0 h4">
+                                                   <a href="#!" class="text-reset">The writing trends that will define
+                                                      2025 (Get Excited)</a>
+                                                </h3>
+                                                <p class="mb-0">Elit qui do aliquip incididunt non laboris Lorem ad
+                                                   sint. Pariatur veniam ipsum voluptate labore qui.</p>
+                                             </div>
+                                             <div class="d-flex align-items-center align-items-center gap-3">
+                                                <div class="d-flex flex-row align-items-center gap-2">
+                                                   <img src="{% static 'assets/images/avatar/avatar-3.jpg' %}" alt="Avatar"
+                                                      class="avatar avatar-xs rounded-circle" />
+                                                   <div class="mb-0 fs-6">Jitu Chauhan</div>
+                                                </div>
+                                                <span class="fs-6">Mar 16, 2025</span>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-lg-4 col-md-6 col-12" data-cue="zoomIn">
+                                    <div class="card h-100">
+                                       <div class="card-body d-flex flex-column gap-5">
+                                          <img src="{% static 'assets/images/blog/blog-img-2.jpg' %}" alt="blog"
+                                             class="rounded img-fluid w-100" />
+                                          <div class="d-flex flex-column gap-4">
+                                             <div class="d-flex flex-column gap-2">
+                                                <h3 class="mb-0 h4">
+                                                   <a href="#!" class="text-reset">The ultimate Block Bootstrap website
+                                                      template</a>
+                                                </h3>
+                                                <p class="mb-0">Nulla velit incididunt consequat mollit cillum nostrud
+                                                   Lorem do consectetur velit. Lorem ipsum dolor sit amet.</p>
+                                             </div>
+                                             <div class="d-flex align-items-center align-items-center gap-3">
+                                                <div class="d-flex flex-row align-items-center gap-2">
+                                                   <img src="{% static 'assets/images/avatar/avatar-8.jpg' %}" alt="Avatar"
+                                                      class="avatar avatar-xs rounded-circle" />
+                                                   <div class="mb-0 fs-6">Sandip Chauhan</div>
+                                                </div>
+                                                <span class="fs-6">Mar 15, 2025</span>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-lg-4 col-md-6 col-12" data-cue="zoomIn">
+                                    <div class="card h-100">
+                                       <div class="card-body d-flex flex-column gap-5">
+                                          <div class="position-relative">
+                                             <img src="{% static 'assets/images/blog/blog-img-3.jpg' %}" alt="blog"
+                                                class="rounded img-fluid w-100" />
+                                             <div class="position-absolute top-0 start-0 p-3">
+                                                <div
+                                                   class="bg-warning-subtle border border-warning-subtle text-warning icon-shape icon-sm rounded">
+                                                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                      fill="currentColor" class="bi bi-patch-check-fill"
+                                                      viewBox="0 0 16 16">
+                                                      <path
+                                                         d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708">
+                                                      </path>
+                                                   </svg>
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <div class="d-flex flex-column gap-4">
+                                             <div class="d-flex flex-column gap-2">
+                                                <h3 class="mb-0 h4">
+                                                   <a href="#!" class="text-reset">Block Template for startup
+                                                      business</a>
+                                                </h3>
+                                                <p class="mb-0">Labore eu nisi magna anim officia eiusmod quis.
+                                                   Voluptate ut commodo laboris dolor esse enim.</p>
+                                             </div>
+                                             <div class="d-flex align-items-center align-items-center gap-3">
+                                                <div class="d-flex flex-row align-items-center gap-2">
+                                                   <img src="{% static 'assets/images/avatar/avatar-7.jpg' %}" alt="Avatar"
+                                                      class="avatar avatar-xs rounded-circle" />
+                                                   <div class="mb-0 fs-6">Anita Parmar</div>
+                                                </div>
+                                                <span class="fs-6">Apr 7, 2025</span>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="tab-pane" id="pillsLifestyle" role="tabpanel" aria-labelledby="pillsLifestyle-tab"
+                           tabindex="0">
+                           <div class="table-responsive-xl">
+                              <div class="row flex-nowrap pb-4">
+                                 <div class="col-lg-4 col-md-6 col-12" data-cue="zoomIn">
+                                    <div class="card h-100">
+                                       <div class="card-body d-flex flex-column gap-5">
+                                          <img src="{% static 'assets/images/blog/blog-img-4.jpg' %}" alt="blog"
+                                             class="rounded img-fluid w-100" />
+                                          <div class="d-flex flex-column gap-4">
+                                             <div class="d-flex flex-column gap-2">
+                                                <h3 class="mb-0 h4">
+                                                   <a href="#!" class="text-reset">A deep introduction to Bootstrap
+                                                      Block Themes</a>
+                                                </h3>
+                                                <p class="mb-0">Adipisicing sit Lorem excepteur mollit irure mollit
+                                                   reprehenderit deserunt fugiat aute Lorem ipsum dolor sit amet.</p>
+                                             </div>
+                                             <div class="d-flex align-items-center align-items-center gap-3">
+                                                <div class="d-flex flex-row align-items-center gap-2">
+                                                   <img src="{% static 'assets/images/avatar/avatar-2.jpg' %}" alt="Avatar"
+                                                      class="avatar avatar-xs rounded-circle" />
+                                                   <div class="mb-0 fs-6">Jitu Chauhan</div>
+                                                </div>
+                                                <span class="fs-6">Feb 28, 2025</span>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-lg-4 col-md-6 col-12" data-cue="zoomIn">
+                                    <div class="card h-100">
+                                       <div class="card-body d-flex flex-column gap-5">
+                                          <div class="position-relative">
+                                             <img src="{% static 'assets/images/blog/blog-img-6.jpg' %}" alt="blog"
+                                                class="rounded img-fluid w-100" />
+                                             <div class="position-absolute top-0 start-0 p-3">
+                                                <div
+                                                   class="bg-warning-subtle border border-warning-subtle text-warning icon-shape icon-sm rounded">
+                                                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                      fill="currentColor" class="bi bi-patch-check-fill"
+                                                      viewBox="0 0 16 16">
+                                                      <path
+                                                         d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708">
+                                                      </path>
+                                                   </svg>
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <div class="d-flex flex-column gap-4">
+                                             <div class="d-flex flex-column gap-2">
+                                                <h3 class="mb-0 h4">
+                                                   <a href="#!" class="text-reset">Block Template for startup
+                                                      business</a>
+                                                </h3>
+                                                <p class="mb-0">Enim nisi fugiat pariatur ut anim Lorem labore.
+                                                   Consectetur in minim pariatur officia adipisicing eu duis.</p>
+                                             </div>
+                                             <div class="d-flex align-items-center align-items-center gap-3">
+                                                <div class="d-flex flex-row align-items-center gap-2">
+                                                   <img src="{% static 'assets/images/avatar/avatar-7.jpg' %}" alt="Avatar"
+                                                      class="avatar avatar-xs rounded-circle" />
+                                                   <div class="mb-0 fs-6">Anita Parmar</div>
+                                                </div>
+                                                <span class="fs-6">Mar 15, 2025</span>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-lg-4 col-md-6 col-12" data-cue="zoomIn">
+                                    <div class="card h-100">
+                                       <div class="card-body d-flex flex-column gap-5">
+                                          <img src="{% static 'assets/images/blog/blog-img-8.jpg' %}" alt="blog"
+                                             class="rounded img-fluid w-100" />
+                                          <div class="d-flex flex-column gap-4">
+                                             <div class="d-flex flex-column gap-2">
+                                                <h3 class="mb-0 h4">
+                                                   <a href="#!" class="text-reset">The ultimate Block Bootstrap website
+                                                      template</a>
+                                                </h3>
+                                                <p class="mb-0">Nulla velit incididunt consequat mollit cillum nostrud
+                                                   Lorem do consectetur velit. Lorem ipsum dolor sit amet.</p>
+                                             </div>
+                                             <div class="d-flex align-items-center align-items-center gap-3">
+                                                <div class="d-flex flex-row align-items-center gap-2">
+                                                   <img src="{% static 'assets/images/avatar/avatar-8.jpg' %}" alt="Avatar"
+                                                      class="avatar avatar-xs rounded-circle" />
+                                                   <div class="mb-0 fs-6">Sandip Chauhan</div>
+                                                </div>
+                                                <span class="fs-6">Mar 15, 2025</span>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="tab-pane" id="pillsSport" role="tabpanel" aria-labelledby="pillsSport-tab"
+                           tabindex="0">
+                           <div class="table-responsive-xl">
+                              <div class="row flex-nowrap pb-4">
+                                 <div class="col-lg-4 col-md-6 col-12" data-cue="zoomIn">
+                                    <div class="card h-100">
+                                       <div class="card-body d-flex flex-column gap-5">
+                                          <img src="{% static 'assets/images/blog/blog-img-2.jpg' %}" alt="blog"
+                                             class="rounded img-fluid w-100" />
+                                          <div class="d-flex flex-column gap-4">
+                                             <div class="d-flex flex-column gap-2">
+                                                <h3 class="mb-0 h4">
+                                                   <a href="#!" class="text-reset">Block Template for startup
+                                                      business</a>
+                                                </h3>
+                                                <p class="mb-0">Enim nisi fugiat pariatur ut anim Lorem labore.
+                                                   Consectetur in minim pariatur officia adipisicing eu duis.</p>
+                                             </div>
+                                             <div class="d-flex align-items-center align-items-center gap-3">
+                                                <div class="d-flex flex-row align-items-center gap-2">
+                                                   <img src="{% static 'assets/images/avatar/avatar-7.jpg' %}" alt="Avatar"
+                                                      class="avatar avatar-xs rounded-circle" />
+                                                   <div class="mb-0 fs-6">Anita Parmar</div>
+                                                </div>
+                                                <span class="fs-6">Mar 15, 2025</span>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-lg-4 col-md-6 col-12" data-cue="zoomIn">
+                                    <div class="card h-100">
+                                       <div class="card-body d-flex flex-column gap-5">
+                                          <div class="position-relative">
+                                             <img src="{% static 'assets/images/blog/blog-img-4.jpg' %}" alt="blog"
+                                                class="rounded img-fluid w-100" />
+                                             <div class="position-absolute top-0 start-0 p-3">
+                                                <div
+                                                   class="bg-warning-subtle border border-warning-subtle text-warning icon-shape icon-sm rounded">
+                                                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                      fill="currentColor" class="bi bi-patch-check-fill"
+                                                      viewBox="0 0 16 16">
+                                                      <path
+                                                         d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708">
+                                                      </path>
+                                                   </svg>
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <div class="d-flex flex-column gap-4">
+                                             <div class="d-flex flex-column gap-2">
+                                                <h3 class="mb-0 h4">
+                                                   <a href="#!" class="text-reset">The ultimate Block Bootstrap website
+                                                      template</a>
+                                                </h3>
+                                                <p class="mb-0">Nulla velit incididunt consequat mollit cillum nostrud
+                                                   Lorem do consectetur velit. Lorem ipsum dolor sit amet.</p>
+                                             </div>
+                                             <div class="d-flex align-items-center align-items-center gap-3">
+                                                <div class="d-flex flex-row align-items-center gap-2">
+                                                   <img src="{% static 'assets/images/avatar/avatar-8.jpg' %}" alt="Avatar"
+                                                      class="avatar avatar-xs rounded-circle" />
+                                                   <div class="mb-0 fs-6">Sandip Chauhan</div>
+                                                </div>
+                                                <span class="fs-6">Mar 15, 2025</span>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-lg-4 col-md-6 col-12" data-cue="zoomIn">
+                                    <div class="card h-100">
+                                       <div class="card-body d-flex flex-column gap-5">
+                                          <img src="{% static 'assets/images/blog/blog-img-6.jpg' %}" alt="blog"
+                                             class="rounded img-fluid w-100" />
+
+                                          <div class="d-flex flex-column gap-4">
+                                             <div class="d-flex flex-column gap-2">
+                                                <h3 class="mb-0 h4">
+                                                   <a href="#!" class="text-reset">A deep introduction to Bootstrap
+                                                      Block Themes</a>
+                                                </h3>
+                                                <p class="mb-0">Adipisicing sit Lorem excepteur mollit irure mollit
+                                                   reprehenderit deserunt fugiat aute Lorem ipsum dolor sit amet.</p>
+                                             </div>
+                                             <div class="d-flex align-items-center align-items-center gap-3">
+                                                <div class="d-flex flex-row align-items-center gap-2">
+                                                   <img src="{% static 'assets/images/avatar/avatar-2.jpg' %}" alt="Avatar"
+                                                      class="avatar avatar-xs rounded-circle" />
+                                                   <div class="mb-0 fs-6">Jitu Chauhan</div>
+                                                </div>
+                                                <span class="fs-6">Feb 28, 2025</span>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="tab-pane" id="pillsTravel" role="tabpanel" aria-labelledby="pillsTravel-tab"
+                           tabindex="0">
+                           <div class="table-responsive-xl">
+                              <div class="row flex-nowrap pb-4">
+                                 <div class="col-md-6 col-12">
+                                    <div class="card h-100">
+                                       <div class="card-body d-flex flex-column gap-5">
+                                          <div class="position-relative">
+                                             <img src="{% static 'assets/images/blog/blog-img-1.jpg' %}" alt="blog"
+                                                class="rounded img-fluid w-100" />
+                                             <div class="position-absolute top-0 start-0 p-3">
+                                                <div
+                                                   class="bg-warning-subtle border border-warning-subtle text-warning icon-shape icon-sm rounded">
+                                                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                      fill="currentColor" class="bi bi-patch-check-fill"
+                                                      viewBox="0 0 16 16">
+                                                      <path
+                                                         d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708">
+                                                      </path>
+                                                   </svg>
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <div class="d-flex flex-column gap-4">
+                                             <div class="d-flex flex-column gap-2">
+                                                <h3 class="mb-0 h4">
+                                                   <a href="#!" class="text-reset">The ultimate Block Bootstrap website
+                                                      template</a>
+                                                </h3>
+                                                <p class="mb-0">
+                                                   Nulla velit incididunt consequat mollit cillum nostrud Lorem do
+                                                   consectetur velit. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit
+                                                   amet
+                                                   consectetur adipisicing elit.
+                                                </p>
+                                             </div>
+                                             <div class="d-flex align-items-center align-items-center gap-3">
+                                                <div class="d-flex flex-row align-items-center gap-2">
+                                                   <img src="{% static 'assets/images/avatar/avatar-8.jpg' %}" alt="Avatar"
+                                                      class="avatar avatar-xs rounded-circle" />
+                                                   <div class="mb-0 fs-6">Sandip Chauhan</div>
+                                                </div>
+                                                <span class="fs-6">Mar 15, 2025</span>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-md-6 col-12">
+                                    <div class="card h-100">
+                                       <div class="card-body d-flex flex-column gap-5">
+                                          <img src="{% static 'assets/images/blog/blog-img-5.jpg' %}" alt="blog"
+                                             class="rounded img-fluid w-100" />
+
+                                          <div class="d-flex flex-column gap-4">
+                                             <div class="d-flex flex-column gap-2">
+                                                <h3 class="mb-0 h4">
+                                                   <a href="#!" class="text-reset">Block Template for startup
+                                                      business</a>
+                                                </h3>
+                                                <p class="mb-0">
+                                                   Labore eu nisi magna anim officia eiusmod quis. Voluptate ut commodo
+                                                   laboris dolor esse enim ipsum dolor sit amet consectetur adipisicing
+                                                   elit.
+                                                   Minima architecto iure optio quo eos ducimus.
+                                                </p>
+                                             </div>
+                                             <div class="d-flex align-items-center align-items-center gap-3">
+                                                <div class="d-flex flex-row align-items-center gap-2">
+                                                   <img src="{% static 'assets/images/avatar/avatar-7.jpg' %}" alt="Avatar"
+                                                      class="avatar avatar-xs rounded-circle" />
+                                                   <div class="mb-0 fs-6">Anita Parmar</div>
+                                                </div>
+                                                <span class="fs-6">Apr 7, 2025</span>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="tab-pane" id="pillsTechnology" role="tabpanel" aria-labelledby="pillsTechnology-tab"
+                           tabindex="0">
+                           <div class="table-responsive-xl">
+                              <div class="row flex-nowrap pb-4">
+                                 <div class="col-lg-4 col-md-6 col-12" data-cue="zoomIn">
+                                    <div class="card h-100">
+                                       <div class="card-body d-flex flex-column gap-5">
+                                          <img src="{% static 'assets/images/blog/blog-img-8.jpg' %}" alt="blog"
+                                             class="rounded img-fluid w-100" />
+                                          <div class="d-flex flex-column gap-4">
+                                             <div class="d-flex flex-column gap-2">
+                                                <h3 class="mb-0 h4">
+                                                   <a href="#!" class="text-reset">The writing trends that will define
+                                                      2025 (Get Excited)</a>
+                                                </h3>
+                                                <p class="mb-0">Elit qui do aliquip incididunt non laboris Lorem ad
+                                                   sint. Pariatur veniam ipsum voluptate labore qui.</p>
+                                             </div>
+                                             <div class="d-flex align-items-center align-items-center gap-3">
+                                                <div class="d-flex flex-row align-items-center gap-2">
+                                                   <img src="{% static 'assets/images/avatar/avatar-3.jpg' %}" alt="Avatar"
+                                                      class="avatar avatar-xs rounded-circle" />
+                                                   <div class="mb-0 fs-6">Jitu Chauhan</div>
+                                                </div>
+                                                <span class="fs-6">Mar 16, 2025</span>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-lg-4 col-md-6 col-12" data-cue="zoomIn">
+                                    <div class="card h-100">
+                                       <div class="card-body d-flex flex-column gap-5">
+                                          <div class="position-relative">
+                                             <img src="{% static 'assets/images/blog/blog-img-3.jpg' %}" alt="blog"
+                                                class="rounded img-fluid w-100" />
+                                             <div class="position-absolute top-0 start-0 p-3">
+                                                <div
+                                                   class="bg-warning-subtle border border-warning-subtle text-warning icon-shape icon-sm rounded">
+                                                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                      fill="currentColor" class="bi bi-patch-check-fill"
+                                                      viewBox="0 0 16 16">
+                                                      <path
+                                                         d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708">
+                                                      </path>
+                                                   </svg>
+                                                </div>
+                                             </div>
+                                          </div>
+                                          <div class="d-flex flex-column gap-4">
+                                             <div class="d-flex flex-column gap-2">
+                                                <h3 class="mb-0 h4">
+                                                   <a href="#!" class="text-reset">Block Template for startup
+                                                      business</a>
+                                                </h3>
+                                                <p class="mb-0">Labore eu nisi magna anim officia eiusmod quis.
+                                                   Voluptate ut commodo laboris dolor esse enim.</p>
+                                             </div>
+                                             <div class="d-flex align-items-center align-items-center gap-3">
+                                                <div class="d-flex flex-row align-items-center gap-2">
+                                                   <img src="{% static 'assets/images/avatar/avatar-7.jpg' %}" alt="Avatar"
+                                                      class="avatar avatar-xs rounded-circle" />
+                                                   <div class="mb-0 fs-6">Anita Parmar</div>
+                                                </div>
+                                                <span class="fs-6">Apr 7, 2025</span>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-lg-4 col-md-6 col-12" data-cue="zoomIn">
+                                    <div class="card h-100">
+                                       <div class="card-body d-flex flex-column gap-5">
+                                          <img src="{% static 'assets/images/blog/blog-img-6.jpg' %}" alt="blog"
+                                             class="rounded img-fluid w-100" />
+
+                                          <div class="d-flex flex-column gap-4">
+                                             <div class="d-flex flex-column gap-2">
+                                                <h3 class="mb-0 h4">
+                                                   <a href="#!" class="text-reset">Block Template for startup
+                                                      business</a>
+                                                </h3>
+                                                <p class="mb-0">Labore eu nisi magna anim officia eiusmod quis.
+                                                   Voluptate ut commodo laboris dolor esse enim.</p>
+                                             </div>
+                                             <div class="d-flex align-items-center align-items-center gap-3">
+                                                <div class="d-flex flex-row align-items-center gap-2">
+                                                   <img src="{% static 'assets/images/avatar/avatar-2.jpg' %}" alt="Avatar"
+                                                      class="avatar avatar-xs rounded-circle" />
+                                                   <div class="mb-0 fs-6">Sandip Chauhan</div>
+                                                </div>
+                                                <span class="fs-6">Apr 7, 2025</span>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="d-flex align-items-center justify-content-center">
+                        <a href="#!" class="btn btn-light">See All Post</a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- Event end -->
+
+   </main>
 {% endblock %}

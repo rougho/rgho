@@ -1,6 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
+from django.http import Http404
 from .forms import EmailSubscriptionForm, ContactForm
+from .models import EmailSubscription
 from projects.models import Project
 from resume.models import Resume
 from lib.emails_hanlder import email_new_subscribers, email_contact_confirmation
@@ -13,8 +15,8 @@ def index(request):
     if request.method == 'POST':
         form = EmailSubscriptionForm(request.POST)
         if form.is_valid():
-            email_new_subscribers(request, form.cleaned_data['email'])
-            form.save()
+            subscription_instance = form.save()
+            email_new_subscribers(request, subscription_instance)
             messages.success(request, 'Thank you for subscribing! We will notify you soon.')
             return redirect('homepage')
         else:
@@ -79,3 +81,24 @@ def contact(request):
     
     resume = Resume.objects.first()
     return render(request, 'core/contact.html', {'form': form, 'resume': resume})
+
+
+def unsubscribe(request, uuid):
+    """
+    Handle email subscription unsubscribe requests
+    """
+    try:
+        subscription = get_object_or_404(EmailSubscription, uuid=uuid)
+        
+        if request.method == 'POST':
+            # User confirmed unsubscribe
+            email = subscription.email
+            subscription.delete()
+            messages.success(request, f'You have been successfully unsubscribed from my newsletter.')
+            return render(request, 'emails/unsubscribe_success.html', {'email': email})
+        
+        # Show confirmation page
+        return render(request, 'emails/unsubscribe_confirm.html', {'subscription': subscription})
+        
+    except EmailSubscription.DoesNotExist:
+        raise Http404("Invalid unsubscribe link or subscription not found.")

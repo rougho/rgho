@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Unsubscribe - rgho</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f5f5f5;">
+    <!-- Main Container Table -->
+    <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #f5f5f5;">
+        <tr>
+            <td align="center" style="padding: 40px 20px;">
+                <!-- Content Table -->
+                <table width="600" cellpadding="0" cellspacing="0" style="background-color: white; border: 1px solid #ddd; border-radius: 8px;">
+                    <!-- Header Section -->
+                    <tr>
+                        <td align="center" style="padding: 40px 20px; text-align: center;">
+                            <!-- Modern Gradient Warning Icon with Shadow -->
+                            <table cellpadding="0" cellspacing="0" style="margin: 0 auto 20px auto; width: 100px; height: 100px;">
+                                <tr>
+                                    <td style="width: 100px; height: 100px; background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 50%, #ff6b35 100%); border-radius: 50px; text-align: center; vertical-align: middle; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3); position: relative;">
+                                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(45deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 50%, rgba(0,0,0,0.1) 100%); border-radius: 50px;"></div>
+                                        <span style="color: white; font-size: 60px; font-weight: 300; line-height: 100px; text-shadow: 0 2px 4px rgba(0,0,0,0.2); position: relative; z-index: 1;">⚠</span>
+                                    </td>
+                                </tr>
+                            </table>
+                            <h1 style="margin: 0; color: #333; font-size: 28px; font-weight: bold; text-align: center;">Confirm Unsubscribe</h1>
+                        </td>
+                    </tr>
+                    <!-- Content Section -->
+                    <tr>
+                        <td style="padding: 0 40px 40px 40px; font-size: 16px; line-height: 1.6; color: #555; text-align: center;">
+                            <p style="margin: 0 0 16px 0; text-align: center;">Are you sure you want to unsubscribe <strong>{{ subscription.email }}</strong> from my newsletter? 🤔</p>
+                            <p style="margin: 0 0 16px 0; text-align: center;">You will no longer receive updates about my new projects, tech insights, and behind-the-scenes updates.</p>
+                            
+                            <!-- Action Buttons -->
+                            <table cellpadding="0" cellspacing="0" style="margin: 20px auto;">
+                                <tr>
+                                    <td style="padding: 0 10px;">
+                                        <form method="post" style="display: inline;">
+                                            {% csrf_token %}
+                                            <table cellpadding="0" cellspacing="0">
+                                                <tr>
+                                                    <td style="background-color: #dc3545; border-radius: 5px; text-align: center; height: 48px; width: 160px;">
+                                                        <button type="submit" style="border: none; background: none; color: white; padding: 0; font-size: 16px; font-weight: bold; cursor: pointer; text-decoration: none; display: block; width: 100%; height: 48px; line-height: 48px;">
+                                                            Yes, Unsubscribe
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </form>
+                                    </td>
+                                    <td style="padding: 0 10px;">
+                                        <table cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td style="background-color: #6c757d; border-radius: 5px; text-align: center; height: 48px; width: 160px;">
+                                                    <a href="/" style="border: none; background: none; color: white; padding: 0; font-size: 16px; font-weight: bold; cursor: pointer; text-decoration: none; display: block; width: 100%; height: 48px; line-height: 48px;">
+                                                        Cancel
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <!-- Footer Section -->
+                    <tr>
+                        <td style="padding: 30px 40px; background-color: #f8f9fa; border-top: 1px solid #e9ecef; text-align: center; font-size: 14px; color: #6c757d;">
+        
+                            <p style="margin: 0 0 8px 0;">
+                                📧 Email: <a href="mailto:rohi@rgho.de" style="color: #007bff; text-decoration: none;">rohi@rgho.de</a><br>
+                                🌐 Website: <a href="https://rgho.de" style="color: #007bff; text-decoration: none;">rgho.de</a>
+                            </p>
+                            <p style="margin: 0; font-size: 12px; color: #868e96;">
+                                This page confirms your unsubscribe request.<br>
+                                © 2025 rgho.de. All rights reserved.
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

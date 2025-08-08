@@ -1,0 +1,46 @@
+{
+    // CSS validation settings - keep highlighting but disable problematic linting
+    "css.validate": true,
+    "css.lint.emptyRules": "ignore",
+    "css.lint.unknownAtRules": "ignore", 
+    "css.lint.invalidProperties": "ignore",
+    "css.lint.duplicateProperties": "ignore",
+    "css.lint.unknownProperties": "ignore",
+    "css.lint.float": "ignore",
+    "css.lint.fontFaceProperties": "ignore",
+    
+    // HTML validation - disable CSS validation in style attributes
+    "html.validate.styles": false,
+    "html.validate.scripts": true,
+    "html.suggest.html5": true,
+    
+    // File associations for proper syntax highlighting
+    "files.associations": {
+        "*.html": "html",
+        "**templates/**/*.html": "html",
+        "**templates/*.html": "html"
+    },
+    
+    // Editor settings for better experience
+    "[html]": {
+        "editor.quickSuggestions": {
+            "other": true,
+            "comments": false,
+            "strings": true
+        },
+        "editor.suggest.insertMode": "replace",
+        "editor.wordWrap": "on"
+    },
+    
+    // Emmet for Django templates
+    "emmet.includeLanguages": {
+        "django-html": "html"
+    },
+    
+    // Language detection
+    "html.trace.server": "off",
+    
+    // Disable problematic validation features
+    "html.customData": [],
+    "css.customData": []
+}

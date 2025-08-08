@@ -1,3 +1,6 @@
+test.py
+github_data.json
+
 # Django migrations - ignore all except __init__.py
 migrations/
 !migrations/
