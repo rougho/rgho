@@ -42,9 +42,7 @@ DEBUG = str(os.getenv('DEBUG')) == '1'
 ALLOWED_HOSTS = []
 
 if not DEBUG:
-    hosts = os.getenv('ALLOWED_HOSTS')
-    if hosts:
-        ALLOWED_HOSTS.extend([host.strip() for host in hosts.split(',') if host.strip()])
+    ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "").split(",")
 
 
 
