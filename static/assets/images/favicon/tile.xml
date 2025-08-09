@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<browserconfig>
+    <msapplication>
+		<tile>
+
+			<square150x150logo src="{% static 'assets/images/logo/logo.svg' %}" alt width="50px"/>
+
+			<TileColor>#8b3dff</TileColor>
+		</tile>
+	</msapplication>
+</browserconfig>

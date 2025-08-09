@@ -1,0 +1,12 @@
+.resume-icons{
+    font-size: 1.5rem;
+}
+
+  .blink-dot {
+    animation: blink-fade 2s infinite;
+    transition: opacity 0.5s;
+  }
+  @keyframes blink-fade {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.2; }
+  }

@@ -1,0 +1,255 @@
+/* Markdown Content Styling - Theme Adaptive */
+
+/* CSS Custom Properties for Theme Support */
+:root {
+    /* Light theme colors */
+    --markdown-table-border: #dee2e6;
+    --markdown-table-bg: #fff;
+    --markdown-table-header-bg: #f8f9fa;
+    --markdown-table-header-color: #495057;
+    --markdown-table-even-bg: #f9f9f9;
+    --markdown-table-hover-bg: #e9ecef;
+    
+    --markdown-blockquote-border: #007bff;
+    --markdown-blockquote-bg: #f8f9fa;
+    --markdown-blockquote-color: #6c757d;
+    
+    --markdown-code-bg: #f1f3f4;
+    --markdown-code-color: #d63384;
+    --markdown-pre-bg: #f8f9fa;
+    --markdown-pre-border: #e9ecef;
+    
+    --markdown-text-color: #212529;
+    --markdown-link-color: #007bff;
+    --markdown-link-hover-color: #0056b3;
+    --markdown-hr-color: #dee2e6;
+}
+
+/* Dark theme colors */
+[data-bs-theme="dark"] {
+    --markdown-table-border: #495057;
+    --markdown-table-bg: #2d3748;
+    --markdown-table-header-bg: #4a5568;
+    --markdown-table-header-color: #e2e8f0;
+    --markdown-table-even-bg: #374151;
+    --markdown-table-hover-bg: #4a5568;
+    
+    --markdown-blockquote-border: #4299e1;
+    --markdown-blockquote-bg: #2d3748;
+    --markdown-blockquote-color: #a0aec0;
+    
+    --markdown-code-bg: #374151;
+    --markdown-code-color: #f687b3;
+    --markdown-pre-bg: #2d3748;
+    --markdown-pre-border: #4a5568;
+    
+    --markdown-text-color: #e2e8f0;
+    --markdown-link-color: #4299e1;
+    --markdown-link-hover-color: #63b3ed;
+    --markdown-hr-color: #4a5568;
+}
+
+/* Auto theme - uses system preference */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-bs-theme]) {
+        --markdown-table-border: #495057;
+        --markdown-table-bg: #2d3748;
+        --markdown-table-header-bg: #4a5568;
+        --markdown-table-header-color: #e2e8f0;
+        --markdown-table-even-bg: #374151;
+        --markdown-table-hover-bg: #4a5568;
+        
+        --markdown-blockquote-border: #4299e1;
+        --markdown-blockquote-bg: #2d3748;
+        --markdown-blockquote-color: #a0aec0;
+        
+        --markdown-code-bg: #374151;
+        --markdown-code-color: #f687b3;
+        --markdown-pre-bg: #2d3748;
+        --markdown-pre-border: #4a5568;
+        
+        --markdown-text-color: #e2e8f0;
+        --markdown-link-color: #4299e1;
+        --markdown-link-hover-color: #63b3ed;
+        --markdown-hr-color: #4a5568;
+    }
+}
+
+/* Tables - Theme adaptive */
+.markdown-content table {
+    border-collapse: collapse !important;
+    width: 100% !important;
+    margin: 1.5rem 0 !important;
+    border: 2px solid var(--markdown-table-border) !important;
+    background-color: var(--markdown-table-bg) !important;
+    transition: all 0.3s ease !important;
+}
+
+.markdown-content table th, 
+.markdown-content table td {
+    border: 1px solid var(--markdown-table-border) !important;
+    padding: 12px 16px !important;
+    text-align: left !important;
+    vertical-align: top !important;
+    color: var(--markdown-text-color) !important;
+    transition: all 0.3s ease !important;
+}
+
+.markdown-content table th {
+    background-color: var(--markdown-table-header-bg) !important;
+    font-weight: bold !important;
+    color: var(--markdown-table-header-color) !important;
+    border-bottom: 2px solid var(--markdown-table-border) !important;
+}
+
+.markdown-content table tr:nth-child(even) {
+    background-color: var(--markdown-table-even-bg) !important;
+}
+
+.markdown-content table tr:hover {
+    background-color: var(--markdown-table-hover-bg) !important;
+}
+
+/* Blockquotes - Theme adaptive */
+.markdown-content blockquote {
+    border-left: 4px solid var(--markdown-blockquote-border) !important;
+    margin: 1.5rem 0 !important;
+    padding: 1rem 1.5rem !important;
+    background-color: var(--markdown-blockquote-bg) !important;
+    color: var(--markdown-blockquote-color) !important;
+    font-style: italic !important;
+    border-radius: 0 4px 4px 0 !important;
+    transition: all 0.3s ease !important;
+}
+
+.markdown-content blockquote p {
+    margin-bottom: 0 !important;
+    color: var(--markdown-blockquote-color) !important;
+}
+
+/* Code blocks - Theme adaptive */
+.markdown-content pre {
+    background-color: var(--markdown-pre-bg) !important;
+    border: 1px solid var(--markdown-pre-border) !important;
+    border-radius: 6px !important;
+    padding: 1.5rem !important;
+    overflow-x: auto !important;
+    margin: 1.5rem 0 !important;
+    font-size: 0.9rem !important;
+    color: var(--markdown-text-color) !important;
+    transition: all 0.3s ease !important;
+}
+
+.markdown-content code {
+    background-color: var(--markdown-code-bg) !important;
+    padding: 2px 6px !important;
+    border-radius: 4px !important;
+    font-family: 'Courier New', Consolas, monospace !important;
+    font-size: 0.9em !important;
+    color: var(--markdown-code-color) !important;
+    transition: all 0.3s ease !important;
+}
+
+.markdown-content pre code {
+    background-color: transparent !important;
+    padding: 0 !important;
+    color: var(--markdown-text-color) !important;
+}
+
+/* Headers in markdown content - Theme adaptive */
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4,
+.markdown-content h5,
+.markdown-content h6 {
+    margin-top: 2rem !important;
+    margin-bottom: 1rem !important;
+    color: var(--markdown-text-color) !important;
+    transition: color 0.3s ease !important;
+}
+
+/* Lists - Theme adaptive */
+.markdown-content ul,
+.markdown-content ol {
+    margin: 1rem 0 !important;
+    padding-left: 2rem !important;
+}
+
+.markdown-content li {
+    margin-bottom: 0.5rem !important;
+    color: var(--markdown-text-color) !important;
+    transition: color 0.3s ease !important;
+}
+
+/* Paragraphs - Theme adaptive */
+.markdown-content p {
+    margin-bottom: 1rem !important;
+    line-height: 1.6 !important;
+    color: var(--markdown-text-color) !important;
+    transition: color 0.3s ease !important;
+}
+
+/* Links - Theme adaptive */
+.markdown-content a {
+    color: var(--markdown-link-color) !important;
+    text-decoration: underline !important;
+    transition: color 0.3s ease !important;
+}
+
+.markdown-content a:hover {
+    color: var(--markdown-link-hover-color) !important;
+}
+
+/* Horizontal rules - Theme adaptive */
+.markdown-content hr {
+    margin: 2rem 0 !important;
+    border: none !important;
+    height: 1px !important;
+    background-color: var(--markdown-hr-color) !important;
+    transition: background-color 0.3s ease !important;
+}
+
+/* Images - Theme adaptive */
+.markdown-content img {
+    max-width: 100% !important;
+    height: auto !important;
+    border-radius: 4px !important;
+    margin: 1rem 0 !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Strong and emphasis - Theme adaptive */
+.markdown-content strong,
+.markdown-content b {
+    color: var(--markdown-text-color) !important;
+    font-weight: bold !important;
+}
+
+.markdown-content em,
+.markdown-content i {
+    color: var(--markdown-text-color) !important;
+    font-style: italic !important;
+}
+
+/* Additional theme-specific enhancements */
+[data-bs-theme="dark"] .markdown-content table {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+[data-bs-theme="light"] .markdown-content table {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Auto theme shadows based on system preference */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-bs-theme]) .markdown-content table {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root:not([data-bs-theme]) .markdown-content table {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    }
+}
