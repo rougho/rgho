@@ -241,8 +241,9 @@ Home
     {% for repo in github_activity %}
     {% for repo_name, commits in repo.items %}
       <div class="col-md-4 col-12 d-flex">
-        <div class="card border-light border-dark mb-3 flex-fill">
-          <div class="card-header d-flex align-items-center justify-content-between">
+        <div class="card border-light border-dark mb-3 flex-fill position-relative transition rounded-3" style="transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <a href="https://github.com/rougho/{{ repo_name }}" class="stretched-link" target="_blank" rel="noopener noreferrer"></a>
+          <div class="card-header d-flex align-items-center justify-content-between rounded-top">
             <h5 class="card-title mb-0 text-white-stable text-dark">{{ repo_name }}</h5>
             <span class="ms-2 align-middle">
                 <span class="badge bg-success p-0 border-0 blink-dot" style="border-radius:50%; width: 14px; height: 14px; display: inline-block;">
@@ -250,10 +251,10 @@ Home
                 </span>
             </span>
           </div>
-          <div class="card-body">
+          <div class="card-body rounded-bottom">
             <ol class="list-group list-group">
             {% for commit in commits %}
-                <li class="list-group-item d-flex justify-content-between align-items-start border-0 border-bottom">
+                <li class="list-group-item d-flex justify-content-between align-items-start border-0">
                     <div class="ms-2 me-auto">
                     <div class="fw-bold">{{ commit.time|date:"Y-m-d" }}</div>
                       {{ commit.message }}
