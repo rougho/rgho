@@ -46,6 +46,7 @@ Blog
 
                <div class="col-xxl-9 col-lg-8 col-12">
                   <div class="row g-5">
+                  {% if page_obj %}
                   {% for post in page_obj %}
 
                      <div class="col-xxl-6 col-12" data-cue="fadeIn">
@@ -83,6 +84,25 @@ Blog
                         </a>
                      </div>
                   {% endfor %}
+                  {% else %}
+                     <div class="col-xxl-6 col-6" data-cue="fadeIn">
+                           <div class="rounded-3 p-8 image-blur" style="
+                                    background-position: center;
+                                    background-repeat: no-repeat;
+                                    background-size: cover;
+                                 ">
+                              <div class="d-flex flex-column gap-10" data-cue="zoomOut">
+                                 <div class="d-flex flex-column gap-4">
+                                    <div class="d-flex flex-column gap-1">
+                                       <h3 class="mb-0 text-white-stable text-truncate">No post available</h3>
+ 
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </a>
+                     </div>
+               {% endif %}
 
                   </div>
                   <!-- Pagination controls -->
