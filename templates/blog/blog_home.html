@@ -150,15 +150,15 @@ Blog
                               <ul class="list-group">
                                  {% if top_categories %}
                                  {% for category in top_categories %}
-                                 <li class="list-group-item d-flex justify-content-between align-items-center text-white-stable">
+                                 <li class="list-group-item d-flex justify-content-between align-items-center text-white-stable border-0 border-bottom">
                                     <a href="" class="link text-white-stable text-dark">{{ category.name }}</a> 
-                                    <span class="badge badge-primary badge-pill">{{ category.post_count }}</span>
+                                    <span class="badge badge-primary badge-pill text-white-stable text-dark">{{ category.post_count }}</span>
                                  </li>
                                  {% endfor %}
                                  {% else %}
                                     <li class="list-group-item d-flex justify-content-between align-items-center text-white-stable">
                                     <a href="" class="link text-warning">- No Category -</a> 
-                                    <span class="badge badge-primary badge-pill">0</span>
+                                    <span class="badge badge-primary badge-pill text-white-stable text-dark">0</span>
                                  </li>
                                  {% endif %}
                               </ul>

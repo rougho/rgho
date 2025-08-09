@@ -1,6 +1,7 @@
 test.py
-github_data.json
+github_repos.json
 .vscode/
+github_events.json
 
 # Django migrations - ignore all except __init__.py
 migrations/

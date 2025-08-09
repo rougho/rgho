@@ -7,6 +7,17 @@ Home
 
 {% block content %}
 
+<style>
+  .blink-dot {
+    animation: blink-fade 2s infinite;
+    transition: opacity 0.5s;
+  }
+  @keyframes blink-fade {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.2; }
+  }
+</style>
+
 
 <section class="right-slant-shape bg-primary pb-10 pt-4 mb-9" data-cue="fadeIn" data-show="true" style="animation-name: fadeIn; animation-duration: 600ms; animation-timing-function: ease; animation-delay: 0ms; animation-direction: normal; animation-fill-mode: both;">
     <div class="container">
@@ -111,7 +122,10 @@ Home
 </section>
 <!--About me end-->
 
- <!--team member-->
+
+
+
+<!--short view-->
 <section class="py-lg-6 py-2">
     <div class="container bg-primary py-lg-9 py-5 rounded-3">
         <div class="row g-5">
@@ -142,7 +156,7 @@ Home
         </div>
     </div>
 </section>
-<!--team member-->
+<!--short view ends-->
 
 <!--Project we done start-->
 <section class="my-xl-9 my-5">
@@ -208,6 +222,62 @@ Home
     </div>
 </section>
 <!--Project we done end-->
+
+<!--Github start-->
+<section class="my-xl-9 my-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="text-center mb-xl-7 mb-5">
+                <small class="text-uppercase ls-md fw-semibold">Github Live Track</small>
+
+                <!-- <h2 class="my-3">Track my latest activity on Github</h2> -->
+                <p class="mb-0">See my latest Github activity, projects, and contributions in real time. Follow along for new code, ideas, and open source work.</p>
+                </div>
+            </div>
+        </div>
+<div class="table-responsive-lg">
+  <div class="row g-4">
+    {% for repo in github_activity %}
+    {% for repo_name, commits in repo.items %}
+      <div class="col-md-4 col-12 d-flex">
+        <div class="card border-light border-dark mb-3 flex-fill">
+          <div class="card-header d-flex align-items-center justify-content-between">
+            <h5 class="card-title mb-0 text-white-stable text-dark">{{ repo_name }}</h5>
+            <span class="ms-2 align-middle">
+                <span class="badge bg-success p-0 border-0 blink-dot" style="border-radius:50%; width: 14px; height: 14px; display: inline-block;">
+                  <span class="visually-hidden">Active</span>
+                </span>
+            </span>
+          </div>
+          <div class="card-body">
+            <ol class="list-group list-group">
+            {% for commit in commits %}
+                <li class="list-group-item d-flex justify-content-between align-items-start border-0 border-bottom">
+                    <div class="ms-2 me-auto">
+                    <div class="fw-bold">{{ commit.time|date:"Y-m-d" }}</div>
+                      {{ commit.message }}
+                    </div>
+                    <span class="badge text-bg-primary rounded-pill">{{commit.committer}}</span>
+                </li>
+            {% endfor %}
+            </ol>
+
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+    {% endfor %}
+
+  </div>
+</div>
+    </div>
+
+    </div>
+</section>
+<!--Github end-->
+
+
 
 <!--Call to action start-->
 <section class="py-5">
