@@ -7,16 +7,6 @@ Home
 
 {% block content %}
 
-<style>
-  .blink-dot {
-    animation: blink-fade 2s infinite;
-    transition: opacity 0.5s;
-  }
-  @keyframes blink-fade {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.2; }
-  }
-</style>
 
 
 <section class="right-slant-shape bg-primary pb-10 pt-4 mb-9" data-cue="fadeIn" data-show="true" style="animation-name: fadeIn; animation-duration: 600ms; animation-timing-function: ease; animation-delay: 0ms; animation-direction: normal; animation-fill-mode: both;">
@@ -256,7 +246,7 @@ Home
             {% for commit in commits %}
                 <li class="list-group-item d-flex justify-content-between align-items-start border-0">
                     <div class="ms-2 me-auto">
-                    <div class="fw-bold">{{ commit.time|date:"Y-m-d" }}</div>
+                    <div class="fw-bold">{{ commit.time|date:"Y.m.d - H:i" }}</div>
                       {{ commit.message }}
                     </div>
                     <span class="badge text-bg-primary rounded-pill">{{commit.committer}}</span>

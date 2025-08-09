@@ -9,10 +9,8 @@ from lib.emails_hanlder import email_contact_confirmation
 from lib.subscribe_newsletter import subscribe_newsletter
 import requests 
 import os
-from dotenv import load_dotenv
 import json
 from datetime import datetime
-load_dotenv()
     
 
 # Create your views here.
