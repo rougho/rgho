@@ -3,9 +3,12 @@
 import os
 import sys
 import dotenv
+from pathlib import Path
 
 def main():
     """Run administrative tasks."""
+    BASE_DIR = Path(__file__).resolve().parent.parent
+
     dotenv.read_dotenv()
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'rgho.settings')
     try:
